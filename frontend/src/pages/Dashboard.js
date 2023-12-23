@@ -6,12 +6,13 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
 
   const getReport = async () => {
-    // const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`
-    // const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`;
-    // const response = await fetch(url);
+    const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO&category=PWA`;
+    const strategy = `strategy=DESKTOP`;
+    const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&${strategy}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`;
+    const response = await fetch(url);
 
-    // const result = await response.json()
-    const result = REPORTS
+    const result = await response.json()
+    // const result = REPORTS
 
     const performanceScore = result.lighthouseResult.categories.performance.score * 100;
     const seoScore = result.lighthouseResult.categories.seo.score * 100;

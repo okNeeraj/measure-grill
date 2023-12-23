@@ -18,6 +18,7 @@ const AppLayout = () => {
           </div>
           <main className="page-container">
             <Analysis />
+            {/* <Dashboard /> */}
           </main>
         </div>
       </div>
