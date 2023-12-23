@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { REPORTS } from "../utils/mocks/reports";
 
-const Home = () => {
+const Dashboard = () => {
   const [websiteUrl, setWebsiteUrl] = useState('https://www.google.com/');
   const [data, setData] = useState(null);
 
@@ -50,4 +50,4 @@ const Home = () => {
 
 
 
-export default Home;
+export default Dashboard;

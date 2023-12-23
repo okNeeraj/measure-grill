@@ -1,13 +1,26 @@
-import { Home } from "../pages";
+import {
+  Dashboard,
+  Analysis
+} from "../pages";
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 const AppLayout = () => {
   return (
     <>
-      <Navbar />
-      <main className="p-4">
-        <Home />
-      </main>
+      <div className="app-layout">
+        <div className="left-sidebar">
+          <Sidebar />
+        </div>
+        <div className="app-container">
+          <div className="top-navbar">
+            <Navbar />
+          </div>
+          <main className="page-container">
+            <Analysis />
+          </main>
+        </div>
+      </div>
     </>
   )
 }
