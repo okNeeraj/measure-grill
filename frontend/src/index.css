@@ -10,5 +10,29 @@
 
 
 body {
-  background-color: #f3f3f3;
+  @apply bg-[#f3f3f3] text-gray-900;
+}
+
+.progress {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  stroke-linecap: round;
+}
+
+.indicator-bar .indicator-line:nth-child(1) {
+  background-color: hsl(100deg 80% 35%);
+}
+
+.indicator-bar .indicator-line:nth-child(2) {
+  background-color: hsl(40, 95%, 50%);
+}
+
+.indicator-bar .indicator-line:nth-child(3) {
+  background-color: hsl(0, 79%, 50%);
+}
+
+.vital-score {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }

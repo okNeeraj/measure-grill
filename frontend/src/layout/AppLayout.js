@@ -13,12 +13,12 @@ const AppLayout = () => {
           <Sidebar />
         </div>
         <div className="app-container">
-          <div className="top-navbar">
+          <div className="top-navbar px-4">
             <Navbar />
           </div>
-          <main className="page-container">
+          <main className="page-container mt-6 px-4">
+            <Dashboard />
             <Analysis />
-            {/* <Dashboard /> */}
           </main>
         </div>
       </div>
