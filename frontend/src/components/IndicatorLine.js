@@ -26,17 +26,20 @@ const CUMULATIVE_LAYOUT_SHIFT_SCORE = {
 }
 
 const LineProgress = ({ proportion }) => {
-  return <div className="h-1 indicator-line mr-[1px]" style={{ width: `${proportion * 100}%` }}></div>;
+  return <div className="h-[2px] indicator-line mr-[1px]" style={{ width: `${proportion * 100}%` }}></div>;
 };
 
-const IndicatorLine = ({ label }) => {
+const IndicatorLine = ({ label, score, scoreUnit }) => {
   const { distributions } = CUMULATIVE_LAYOUT_SHIFT_SCORE;
   // console.log(distributions)
 
   return (
-    <div className="">
-      <div className="indicator-label text-xs">{label}</div>
-      <div className="indicator-bar flex w-48 mt-2">
+    <div className="indicator-line-card px-4 py-6 bg-white rounded-md">
+      <div className="mb-4 flex gap-4 items-end">
+        <span className="indicator-label text-lg text-gray-500">{label}</span>
+        <span className={`text-2xl text indicat-score`}>{score} {scoreUnit}</span>
+      </div>
+      <div className="indicator-bar flex mt-2">
         {distributions.map((distribution, index) => (
           <LineProgress
             key={index}

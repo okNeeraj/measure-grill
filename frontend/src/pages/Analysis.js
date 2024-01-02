@@ -11,8 +11,31 @@ const Analysis = () => {
         <div className="audit-url text-gray-500">https://okneeraj.github.io/netflix-gpt/</div>
       </div>
 
-      <div className="bg-white mt-5 p-8 rounded-md">
-        <div className="matrix flex gap-16 justify-center items-center">
+      <div className="section mt-10 rounded-md">
+        <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
+          <span class="material-symbols-outlined">google_home_devices</span>
+          <span>CRuX Report</span>
+        </h2>
+        <div className="vital-score gap-4">
+          <IndicatorLine label={'LCP'} score={2500} scoreUnit={'ms'} />
+          <IndicatorLine label={'FID'} score={14} scoreUnit={'ms'} />
+          <IndicatorLine label={'CLS'} score={0.02} scoreUnit={'ms'} />
+          <IndicatorLine label={'FCP'} score={2300} scoreUnit={'ms'} />
+          <IndicatorLine label={'INP'} score={125} scoreUnit={'ms'} />
+          <IndicatorLine label={'TTFB'} score={1700} scoreUnit={'ms'} />
+        </div>
+      </div>
+
+      <div className="section mt-10">
+        <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
+          <span class="material-symbols-outlined">bolt</span>
+          <span>Lighthouse Report</span>
+        </h2>
+        <div className="matrix bg-white rounded-md px-4 py-8 flex gap-16 justify-centerF items-center">
+          <div className="w-96 h-72 flex justify-center border border-gray-100 p-3 rounded-md">
+            {/* <img src="https://foo-software-screenshots.s3.amazonaws.com/final-screenshot-1704112085427.jpg" alt="VI Desktop" /> */}
+            <img src="https://foo-software-screenshots.s3.amazonaws.com/final-screenshot-1704112114120.jpg" alt="VI Mobile" />
+          </div>
           <div className="overall-matrix">
             <IndicatorCircle percentage={72} label={'Overall Performance'} size={'lg'} variant={'improvement'} />
           </div>
@@ -22,17 +45,7 @@ const Analysis = () => {
               <IndicatorCircle percentage={100} label={'Accessibility'} size={'md'} variant={'good'} />
               <IndicatorCircle percentage={96} label={'Best Practices'} size={'md'} variant={'good'} />
               <IndicatorCircle percentage={87} label={'SEO'} size={'md'} variant={'improvement'} />
-            </div>
-            <div className="mt-8 px-5 pb-8 border rounded-md">
-              <h2 className="text-sm font-bold py-5">Core Web Vitals Assessment</h2>
-              <div className="vital-score">
-                <IndicatorLine label={'LCP'} />
-                <IndicatorLine label={'FID'} />
-                <IndicatorLine label={'CLS'} />
-                <IndicatorLine label={'FCP'} />
-                <IndicatorLine label={'INP'} />
-                <IndicatorLine label={'TTFB'} />
-              </div>
+              <IndicatorCircle percentage={'N/A'} label={'PWA'} size={'md'} variant={'nodata'} />
             </div>
           </div>
         </div>

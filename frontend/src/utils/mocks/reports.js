@@ -9426,9 +9426,9 @@ export const REPORTS = [
 				"seo": {
 					"id": "seo",
 					"title": "SEO",
-					"description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/learn-core-web-vitals/). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769).",
+					"description": "These checks",
 					"score": 0.92,
-					"manualDescription": "Run these additional validators on your site to check additional SEO best practices.",
+					"manualDescription": "Run these",
 					"auditRefs": [
 						{
 							"id": "viewport",

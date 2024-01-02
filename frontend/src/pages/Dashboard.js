@@ -12,10 +12,16 @@ const Dashboard = () => {
     // const response = await fetch(url);
     // const result = await response.json()
 
-    const result = REPORTS[1];
+    const result = REPORTS[0];
     const lh = result.lighthouseResult;
+    const categories = lh.categories;
     const audits = Object.values(lh.audits);
-    console.log(result.id, audits.length);
+
+    const cat = ["performance", "accessibility", "best-practices", "seo", "pwa"];
+
+    const relevantAutid = categories[cat[0]].auditRefs[0]?.relevantAudits
+    console.log(relevantAutid);
+    // console.log(result.id, audits.length);
   }
   const handleWebsiteUrl = (e) => {
     // console.log(e.target.value);

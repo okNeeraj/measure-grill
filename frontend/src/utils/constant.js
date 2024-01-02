@@ -4,6 +4,7 @@ export const INDICATE_COLOR = {
 	good: '100deg 80%',
 	improvement: '40deg 80%',
 	poor: '0deg 80%',
+	nodata: '0deg 0%',
 };
 
 export const INDICATE_SIZES = {

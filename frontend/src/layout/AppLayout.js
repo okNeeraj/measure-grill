@@ -17,7 +17,7 @@ const AppLayout = () => {
             <Navbar />
           </div>
           <main className="page-container mt-6 px-4">
-            <Dashboard />
+            {/* <Dashboard /> */}
             <Analysis />
           </main>
         </div>

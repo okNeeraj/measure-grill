@@ -31,8 +31,31 @@ body {
   background-color: hsl(0, 79%, 50%);
 }
 
+.indicator-line-card:nth-child(1) .indicat-score {
+  color: hsl(40, 79%, 50%);
+}
+
+.indicator-line-card:nth-child(2) .indicat-score {
+  color: hsl(100, 79%, 40%);
+}
+
+.indicator-line-card:nth-child(3) .indicat-score {
+  color: hsl(100, 79%, 40%);
+}
+
+.indicator-line-card:nth-child(4) .indicat-score {
+  color: hsl(40, 79%, 50%);
+}
+
+.indicator-line-card:nth-child(5) .indicat-score {
+  color: hsl(100, 79%, 40%);
+}
+
+.indicator-line-card:nth-child(6) .indicat-score {
+  color: hsl(0, 79%, 50%);
+}
+
 .vital-score {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(6, 1fr);
 }
