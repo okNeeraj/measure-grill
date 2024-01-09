@@ -10,10 +10,7 @@ function filterData(report) {
 		const auditScore = audit.score; // [null, '0 to 1']
 		const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
 		if (
-			auditScoreMode !== 'notApplicable'
-			&& auditScoreMode !== 'manual'
-			&& auditScoreMode !== 'informative'
-			&& auditScore !== 1
+			auditScore && auditScore < 1
 		) {
 			auditList.push(audit)
 		}
@@ -30,6 +27,7 @@ export const report = asyncHandler(async (req, res) => {
 	const filteredData = filterData(REPORT_STATIC);
 	res.status(200).json({
 		message: "ok",
+		lighthouseVersion: REPORT_STATIC[1]['lighthouseResult']['lighthouseVersion'],
 		totalAudits: filteredData.length,
 		data: filteredData,
 	})
