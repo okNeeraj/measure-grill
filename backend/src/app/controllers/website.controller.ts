@@ -1,5 +1,5 @@
-import asyncHandler from "../../utils/asyncHandler.js";
-import { WEBSITE_MOCK } from "../../mock/websiteMock.js";
+import asyncHandler from "../../utils/asyncHandler";
+import { WEBSITE_MOCK } from "../../mock/websiteMock";
 
 // import lighthouse from 'lighthouse';
 // import config from '../../../lighthouse.config.js';
