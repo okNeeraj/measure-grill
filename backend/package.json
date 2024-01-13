@@ -4,6 +4,10 @@
   "description": "",
   "type": "module",
   "main": "src/server.js",
+  "imports": {
+    "#src/*": "./*.js",
+    "#services/*": "./app/services/*.js"
+  },
   "scripts": {
     "audit": "lighthouse https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home --output=json --output-path=./audit-report.json --save-assets",
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/server.js",

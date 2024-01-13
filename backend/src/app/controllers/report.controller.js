@@ -19,30 +19,38 @@ function filterData(report) {
 		const auditScore = audit.score; // [null, '0 to 1']
 		const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
 		if (
-			// auditScore && auditScore < 1
-			true
+			auditScoreMode !== 'informative'
+			&& auditScoreMode !== 'notApplicable'
+			&& auditScoreMode !== 'manual'
+			&& auditScoreMode !== 'error'
+			&& auditScoreMode === 'binary'
+			&& auditScore !== 1
+			// auditScoreMode === 'metricSavings'
+			// auditScore === 1
+			// true
 		) {
-			auditList.push(`${audit.title} - ${audit.score}`)
+			auditList.push(audit)
 		}
-		// if (!auditList.includes(auditType)) {
-		// 	auditList.push(auditType)
-		// }
-
 	});
 
 	return auditList;
 }
 
+const filterAudits = () => {
 
+}
 
 export const report = asyncHandler(async (req, res) => {
 	const filteredData = filterData(REPORT_STATIC);
-	const result = getAudits(actualAudits)
+	// const result = getAudits(actualAudits)
 	res.status(200).json({
 		message: "ok",
 		lighthouseVersion: REPORT_STATIC[1]['lighthouseResult']['lighthouseVersion'],
 		totalAudits: filteredData.length,
-		data: result,
+		data: {
+			categories: null,
+			audits: filteredData
+		},
 	})
 })
 
