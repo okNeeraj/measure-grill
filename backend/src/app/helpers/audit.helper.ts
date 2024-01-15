@@ -3,7 +3,7 @@ export const getAudits = (originalObject) => {
 	for (const key in originalObject) {
 		if (originalObject.hasOwnProperty(key)) {
 			const { id, title, description } = originalObject[key];
-			let customDesc = `my description => ${description}`
+			const customDesc = `my description => ${description}`
 			filteredObject[key] = { id, title, description: customDesc };
 		}
 	}

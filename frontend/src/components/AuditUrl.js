@@ -3,7 +3,7 @@ import { useState } from "react";
 const AuditUrl = () => {
 	const [websiteUrl, setWebsiteUrl] = useState(null);
 	const getReport = async () => {
-		const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO&category=PWA`;
+		const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`;
 		const strategy = `strategy=DESKTOP`;
 		const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&${strategy}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`;
 		const response = await fetch(url);

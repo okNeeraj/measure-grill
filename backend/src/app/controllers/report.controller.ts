@@ -11,46 +11,61 @@ import {
 	auditHelper
 } from "../helpers/audit.helper";
 
-function filterData(report: unknown) {
-	const data = report[1]['lighthouseResult'];
+function filterAudit(lhReport: any) {
 	const auditList = []
-	Object.values(data.audits).forEach((audit) => {
-		// const auditType = <unknown> audit.details?.type;
-		// const auditScore = audit.score; // [null, '0 to 1']
-		// const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
-		// if (
-		// 	auditScoreMode !== 'informative'
-		// 	&& auditScoreMode !== 'notApplicable'
-		// 	&& auditScoreMode !== 'manual'
-		// 	&& auditScoreMode !== 'error'
-		// 	&& auditScoreMode === 'binary'
-		// 	&& auditScore !== 1
-		// 	// auditScoreMode === 'metricSavings'
-		// 	// auditScore === 1
-		// 	// true
-		// ) {
-		// 	auditList.push(audit)
-		// }
-		auditList.push(audit)
+	Object.values(lhReport.audits).forEach((audit: any) => {
+		const auditType = audit.details?.type;
+		const auditScore = audit.score; // [null, '0 to 1']
+		const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
+		if (
+			auditScoreMode !== 'informative'
+			&& auditScoreMode !== 'notApplicable'
+			&& auditScoreMode !== 'manual'
+			&& auditScoreMode !== 'error'
+			&& auditScoreMode === 'binary'
+			&& auditScore !== 1
+			// auditScoreMode === 'metricSavings'
+			// auditScore === 1
+			// true
+		) {
+			auditList.push(audit)
+		}
 	});
 
 	return auditList;
 }
 
-const filterAudits = () => {
+const filterCategory = (lhReport: any) => {
+	const categoryList = {
+		"performance": null,
+		"accessibility": null,
+		"best-practices": null,
+		"seo": null,
+		"pwa": null
+	}
 
+	Object.values(lhReport.categories).forEach((category: any) => {
+		const { id, auditRefs } = category;
+		categoryList[id] = category;
+		const filteredAuditRefs = auditRefs.filter((audit: any) => {
+			return audit
+		});
+		categoryList[id] = filteredAuditRefs
+	});
+
+	return categoryList;
 }
 
 export const report = asyncHandler(async (req, res) => {
-	const filteredData = filterData(REPORT_STATIC);
-	// const result = getAudits(actualAudits)
+	const filteredCategory = filterCategory(REPORT_STATIC[1]['lighthouseResult']);
+	const filteredAudit = filterAudit(REPORT_STATIC[1]['lighthouseResult']);
 	res.status(200).json({
 		message: "ok",
-		lighthouseVersion: REPORT_STATIC[1]['lighthouseResult']['lighthouseVersion'],
-		totalAudits: filteredData.length,
+		lighthouseVersion: '11.4.0',
+		totalAudits: filteredAudit.length,
 		data: {
-			categories: null,
-			audits: filteredData
+			categories: filteredCategory,
+			audits: filteredAudit
 		},
 	})
 })
