@@ -18,8 +18,6 @@ import { app } from "./app"
 // 		console.log('Database Error !!', error)
 // 	})
 
-console.log('thehe')
-
 app.on("Error", (error) => {
 	console.log("Application Error !!", error);
 	throw error;
