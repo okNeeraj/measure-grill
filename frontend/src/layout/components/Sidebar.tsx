@@ -1,5 +1,4 @@
-import React from 'react'
-import { LOGO } from '../../utils/constant'
+import { LOGO } from '@utils/constant';
 
 const Sidebar = () => {
 	return (

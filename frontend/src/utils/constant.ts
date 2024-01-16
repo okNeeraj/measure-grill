@@ -1,4 +1,4 @@
-export const LOGO = `http://localhost:3000/mgrill.png`;
+export const LOGO = `./mgrill.png`;
 
 export const INDICATE_COLOR = {
 	good: '100deg 80%',

@@ -1,9 +1,8 @@
 // import { useState } from "react";
-import IndicatorCircle from "../components/IndicatorCircle"
-import IndicatorLine from "../components/IndicatorLine"
+import IndicatorCircle from "@components/IndicatorCircle"
+import IndicatorLine from "@components/IndicatorLine"
 
 const Analysis = () => {
-  // const [percentage, setPercentage] = useState(50);
   return (
     <div className="">
       <div className="border-l-4 border-gray-300 pl-4">
@@ -13,7 +12,7 @@ const Analysis = () => {
 
       <div className="section mt-10 rounded-md">
         <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
-          <span class="material-symbols-outlined">google_home_devices</span>
+          <span className="material-symbols-outlined">google_home_devices</span>
           <span>CRuX Report</span>
         </h2>
         <div className="vital-score gap-4">
@@ -28,7 +27,7 @@ const Analysis = () => {
 
       <div className="section mt-10">
         <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
-          <span class="material-symbols-outlined">bolt</span>
+          <span className="material-symbols-outlined">bolt</span>
           <span>Lighthouse Report</span>
         </h2>
         <div className="matrix bg-white rounded-md px-4 py-8 flex gap-16 justify-centerF items-center">
