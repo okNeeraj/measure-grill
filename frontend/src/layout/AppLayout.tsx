@@ -1,7 +1,6 @@
-import {
-  Dashboard,
-  Analysis
-} from "../pages";
+// import Dashboard from "@pages/dashboard";
+import Analysis from "../pages/analysis";
+
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 

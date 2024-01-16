@@ -1,4 +1,4 @@
-import AuditUrl from "../../components/AuditUrl";
+import AuditUrl from "@components/AuditUrl";
 
 const Navbar = () => {
   return (
