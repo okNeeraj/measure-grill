@@ -15,7 +15,7 @@ const Analysis = () => {
       </div>
 
       <CruxSection />
-      <PerformanceSection />
+      {/* <PerformanceSection /> */}
       <AuditSection />
     </>
   )
