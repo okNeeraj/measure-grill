@@ -11,7 +11,7 @@ const ActiveTabContext = createContext({
 
 export const Tabs: React.FC<TabsProps> = ({ children, activeTab }) => {
   const [currentTab, setTab] = useState(activeTab)
-  function updateTab(tabId: string) {
+  const updateTab = (tabId: string) => {
     setTab(tabId)
   }
 
@@ -29,7 +29,7 @@ type TabListProps = {
 }
 
 export const TabList: React.FC<TabListProps> = ({ children }) => {
-  return <div className="tab-menu flex mb-2">{children}</div>
+  return <div className="tab-menu flex mb-4 text-sm bg-white">{children}</div>
 }
 
 type TabMenuProps = {
@@ -42,7 +42,7 @@ export const TabMenu: React.FC<TabMenuProps> = ({ value, label }) => {
   return (
     <div
       data-id={value}
-      className={`px-2 py-4 cursor-pointer ${currentTab === value ? 'text-blue-500 hover:text-blue-500' : 'text-slate-600 hover:text-slate-800'}`}
+      className={`px-4 border-b-2 py-4 cursor-pointer ${currentTab === value ? 'border-violet-800 text-violet-800 hover:text-violet-800' : 'border-transparent text-slate-600 hover:text-slate-800'}`}
       onClick={() => {
         updateTab(value)
       }}
@@ -60,7 +60,7 @@ type TabContentProps = {
 export const TabContent: React.FC<TabContentProps> = ({ value, children }) => {
   const { currentTab } = useContext(ActiveTabContext)
   return currentTab === value ? (
-    <div data-tab={value} className="bg-gray-100 p-4 mb-2">
+    <div data-tab={value} className="">
       {children}
     </div>
   ) : null
