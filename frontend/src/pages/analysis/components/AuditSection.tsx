@@ -18,6 +18,8 @@ const AuditSection = () => {
           <TabContent value={'performance'}>
             <h1>Performance</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           </TabContent>
           <TabContent value={'best-practices'}>
             <h1>Best Practices</h1>

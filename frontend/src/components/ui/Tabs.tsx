@@ -1,15 +1,26 @@
-import { ReactNode } from 'react'
+import { ReactNode, createContext, useContext, useState } from 'react'
 
 type TabsProps = {
   activeTab: string
   children: ReactNode
 }
+const ActiveTabContext = createContext({
+  currentTab: '',
+  updateTab: (tabId) => {},
+})
 
 export const Tabs: React.FC<TabsProps> = ({ children, activeTab }) => {
+  const [currentTab, setTab] = useState(activeTab)
+  function updateTab(tabId: string) {
+    setTab(tabId)
+  }
+
   return (
-    <div className="tabs" data-active={activeTab}>
-      {children}
-    </div>
+    <ActiveTabContext.Provider value={{ currentTab, updateTab }}>
+      <div className="tabs" data-active={activeTab}>
+        {children}
+      </div>
+    </ActiveTabContext.Provider>
   )
 }
 
@@ -18,7 +29,6 @@ type TabListProps = {
 }
 
 export const TabList: React.FC<TabListProps> = ({ children }) => {
-  // Your implementation for TabList component
   return <div className="tab-menu flex mb-2">{children}</div>
 }
 
@@ -28,16 +38,17 @@ type TabMenuProps = {
 }
 
 export const TabMenu: React.FC<TabMenuProps> = ({ value, label }) => {
-  // Your implementation for TabMenu component
+  const { currentTab, updateTab } = useContext(ActiveTabContext)
   return (
-    <>
-      <div
-        data-id={value}
-        className="px-2 py-4 cursor-pointer hover:text-blue-500"
-      >
-        {label}
-      </div>
-    </>
+    <div
+      data-id={value}
+      className={`px-2 py-4 cursor-pointer ${currentTab === value ? 'text-blue-500 hover:text-blue-500' : 'text-slate-600 hover:text-slate-800'}`}
+      onClick={() => {
+        updateTab(value)
+      }}
+    >
+      {label}
+    </div>
   )
 }
 
@@ -46,15 +57,11 @@ type TabContentProps = {
   children: ReactNode
 }
 
-export const TabContent: React.FC<TabContentProps> = (props) => {
-  // Your implementation for TabContent component
-  console.log('pff', props)
-  const { value, children } = props
-  return (
-    <>
-      <div data-tab={value} className="bg-gray-200 p-4 mb-2">
-        {children}
-      </div>
-    </>
-  )
+export const TabContent: React.FC<TabContentProps> = ({ value, children }) => {
+  const { currentTab } = useContext(ActiveTabContext)
+  return currentTab === value ? (
+    <div data-tab={value} className="bg-gray-100 p-4 mb-2">
+      {children}
+    </div>
+  ) : null
 }
