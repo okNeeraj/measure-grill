@@ -7,6 +7,13 @@ export const INDICATE_COLOR = {
 	nodata: '0deg 0%',
 };
 
+export const INDICATE_CLASS = {
+	good: 'indicate-goood',
+	improvement: 'indicate-improvement',
+	poor: 'indicate-poor',
+	nodata: 'indicate-na',
+};
+
 export const INDICATE_SIZES = {
 	lg: '124px',
 	md: '72px',
