@@ -1,3 +1,4 @@
+import { INDICATE_CLASS } from '@utils/constant'
 import { ReactNode, createContext, useContext, useState } from 'react'
 
 type TabsProps = {
@@ -29,25 +30,28 @@ type TabListProps = {
 }
 
 export const TabList: React.FC<TabListProps> = ({ children }) => {
-  return <div className="tab-menu flex mb-4 text-sm bg-white">{children}</div>
+  return <div className="tab-menu flex mb-4 gap-4 text-md rounded-md shadow-sm bg-white p-4">{children}</div>
 }
 
 type TabMenuProps = {
   value: string
   label: string
+  score: number
+  variant: string
 }
 
-export const TabMenu: React.FC<TabMenuProps> = ({ value, label }) => {
+export const TabMenu: React.FC<TabMenuProps> = ({ value, score, label }) => {
   const { currentTab, updateTab } = useContext(ActiveTabContext)
   return (
     <div
       data-id={value}
-      className={`px-4 border-b-2 py-4 cursor-pointer ${currentTab === value ? 'border-violet-800 text-violet-800 hover:text-violet-800' : 'border-transparent text-slate-600 hover:text-slate-800'}`}
+      className={`px-4 py-2 cursor-pointer rounded-md flex flex-col gap-2 items-center ${currentTab === value ? 'bg-violet-100 text-violet-800' : 'border-transparent text-slate-600 hover:text-violet-800'}`}
       onClick={() => {
         updateTab(value)
       }}
     >
-      {label}
+      {/* <span className="text-indicat-improve">{score}</span> */}
+      <span className="text-sm font-bold">{label}</span>
     </div>
   )
 }
