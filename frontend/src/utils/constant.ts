@@ -8,7 +8,7 @@ export const INDICATE_COLOR = {
 };
 
 export const INDICATE_CLASS = {
-	good: 'indicate-goood',
+	good: 'indicate-good',
 	improvement: 'indicate-improvement',
 	poor: 'indicate-poor',
 	nodata: 'indicate-na',
@@ -18,4 +18,16 @@ export const INDICATE_SIZES = {
 	lg: '124px',
 	md: '72px',
 	sm: '64px',
+};
+
+export const AUDIT_IMPACT = {
+	high: 'High',
+	medium: 'Med',
+	low: 'Low',
+};
+
+export const AUDIT_IMPACT_CLASS = {
+	high: 'indicate-poor',
+	medium: 'indicate-improvement',
+	low: 'indicate-good',
 };

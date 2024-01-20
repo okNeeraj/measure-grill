@@ -1,4 +1,4 @@
-import { INDICATE_CLASS } from '@utils/constant'
+// import { INDICATE_CLASS } from '@utils/constant'
 import { ReactNode, createContext, useContext, useState } from 'react'
 
 type TabsProps = {
@@ -36,8 +36,8 @@ export const TabList: React.FC<TabListProps> = ({ children }) => {
 type TabMenuProps = {
   value: string
   label: string
-  score: number
-  variant: string
+  score?: number
+  variant?: string
 }
 
 export const TabMenu: React.FC<TabMenuProps> = ({ value, score, label }) => {
