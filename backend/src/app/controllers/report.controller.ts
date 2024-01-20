@@ -18,15 +18,15 @@ function filterAudit(lhReport: any) {
 		const auditScore = audit.score; // [null, '0 to 1']
 		const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
 		if (
-			auditScoreMode !== 'informative'
-			&& auditScoreMode !== 'notApplicable'
-			&& auditScoreMode !== 'manual'
-			&& auditScoreMode !== 'error'
-			&& auditScoreMode === 'binary'
-			&& auditScore !== 1
+			// auditScoreMode !== 'informative'
+			// && auditScoreMode !== 'notApplicable'
+			// && auditScoreMode !== 'manual'
+			// && auditScoreMode !== 'error'
+			// && auditScoreMode === 'binary'
+			// && auditScore !== 1
 			// auditScoreMode === 'metricSavings'
 			// auditScore === 1
-			// true
+			true
 		) {
 			auditList.push(audit)
 		}
@@ -47,10 +47,10 @@ const filterCategory = (lhReport: any) => {
 	Object.values(lhReport.categories).forEach((category: any) => {
 		const { id, auditRefs } = category;
 		categoryList[id] = category;
-		const filteredAuditRefs = auditRefs.filter((audit: any) => {
-			return audit
-		});
-		categoryList[id] = filteredAuditRefs
+		// const filteredAuditRefs = auditRefs.filter((audit: any) => {
+		// 	return audit
+		// });
+		// categoryList[id] = filteredAuditRefs
 	});
 
 	return categoryList;
@@ -62,7 +62,7 @@ export const report = asyncHandler(async (req, res) => {
 	res.status(200).json({
 		message: "ok",
 		lighthouseVersion: '11.4.0',
-		totalAudits: filteredAudit.length,
+		// totalAudits: filteredAudit.length,
 		data: {
 			categories: filteredCategory,
 			audits: filteredAudit
