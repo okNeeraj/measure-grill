@@ -1,16 +1,16 @@
 import { ReactNode, useState } from 'react'
+import { AUDIT_IMPACT, AUDIT_IMPACT_CLASS } from '@utils/constant'
 
 interface AccordionProps {
   title: string
   subtitle: string
   open?: boolean
-
+  impact: 'high' | 'medium' | 'low'
   children: ReactNode
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ open, title, subtitle, children }) => {
+export const Accordion: React.FC<AccordionProps> = ({ open, title, subtitle, impact, children }) => {
   const [isOpen, setIsOpen] = useState(open)
-
   const toggleAccordion = () => {
     setIsOpen(!isOpen)
   }
@@ -22,13 +22,15 @@ export const Accordion: React.FC<AccordionProps> = ({ open, title, subtitle, chi
           className={`accordion-header flex gap-4 items-center cursor-pointer ${isOpen === true ? 'bg-gray-100 hover:bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
           onClick={toggleAccordion}
         >
-          <div className="priority p-4 w-16 text-center text-red-600 text-xs gap-2 flex items-center">
-            <span>High</span>
+          <div
+            className={`priority p-4 w-16 text-center text-${AUDIT_IMPACT_CLASS[impact]} text-xs gap-2 flex items-center`}
+          >
+            <span className="font-bold">{AUDIT_IMPACT[impact]}</span>
             <span className="material-symbols-outlined font-bold ml-auto text-sm">arrow_upward</span>
           </div>
           <div className="header-content">
             <span className="">{title}</span>
-            <span className="text-red-500 text-sm">{subtitle && ` - ${subtitle}`}</span>
+            <span className={`text-${AUDIT_IMPACT_CLASS[impact]} text-xs`}>{subtitle && ` - ${subtitle}`}</span>
           </div>
           <span className="material-symbols-outlined font-bold ml-auto">{isOpen ? 'expand_less' : 'expand_more'}</span>
         </div>
