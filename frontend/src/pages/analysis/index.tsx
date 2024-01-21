@@ -2,7 +2,7 @@ import CruxSection from './components/CruxSection'
 import PerformanceSection from './components/PerformanceSection'
 import AuditSection from './components/AuditSection'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setReport } from '@store/reportSlice'
 
 const Analysis = () => {
@@ -18,14 +18,21 @@ const Analysis = () => {
     fetchReport()
   }, [])
 
+  const report = useSelector((store: any) => store.lighthouse.report)
+  if (!report) return
+
+  const date = new Date(report.fetchTime)
+  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' }
+  const readableDate = date.toLocaleString('en-US', options)
+
   return (
     <>
       <div className="border-l-4 border-gray-300 pl-4">
-        <h1 className="text-2xl">Report Generated At December 23, 2023, 08:43:40</h1>
-        <div className="audit-url text-gray-500">https://okneeraj.github.io/netflix-gpt/</div>
+        <h1 className="text-2xl">Report Generated At {readableDate}</h1>
+        <div className="audit-url text-gray-500">{report.finalUrl}</div>
       </div>
 
-      <CruxSection />
+      {/* <CruxSection /> */}
       <PerformanceSection />
       <AuditSection />
     </>

@@ -5,12 +5,12 @@ const AuditsFilter = ({ audits }) => {
   if (!audits.length) return <h1 className="text-2xl text-center my-16 text-gray-600">No Audits Found !!</h1>
   return (
     audits &&
-    audits.map((audit) => (
+    audits.map((audit: { id: string; title: string; score: number; displayValue: string; description: string }) => (
       <Accordion
         key={audit.id}
-        title={audit.title}
+        title={`${audit.title} - ${audit.score}`}
         impact={audit.score <= 0.5 ? 'high' : audit.score <= 0.95 ? 'medium' : 'low'}
-        subtitle={audit?.weight}
+        subtitle={audit?.displayValue}
         open={false}
       >
         <AccordionContent>

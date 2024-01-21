@@ -1,14 +1,22 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setReport } from '@store/reportSlice'
 
 const AuditUrl = () => {
   const [websiteUrl, setWebsiteUrl] = useState('')
+  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
   const getReport = async () => {
+    setLoading(true)
     const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`
     const strategy = `strategy=DESKTOP`
     const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&${strategy}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`
     const response = await fetch(url)
     const result = await response.json()
-    console.log(result)
+    if (result) {
+      setLoading(false)
+      dispatch(setReport(result.lighthouseResult))
+    }
   }
   const handleWebsiteUrl = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setWebsiteUrl(e.target.value)
@@ -27,9 +35,10 @@ const AuditUrl = () => {
           />
           <button
             onClick={getReport}
-            className=" bg-violet-800 px-4 mx-1 rounded-sm border-none text-white text-sm"
+            disabled={websiteUrl === '' ? true : false}
+            className=" bg-violet-800 disabled:bg-violet-500 disabled:cursor-not-allowed px-4 mx-1 rounded-sm border-none text-white text-sm"
           >
-            Get Report
+            {loading ? 'Analysing...' : 'Get Report'}
           </button>
         </div>
       </div>

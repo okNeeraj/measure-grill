@@ -1,6 +1,15 @@
 import IndicatorCircle from '@components/IndicatorCircle'
+import { useSelector } from 'react-redux'
 
 const PerformanceSection = () => {
+  const report = useSelector((store: any) => store.lighthouse.report)
+  if (!report) return
+  const performanceScore = report.categories.performance.score * 100 || 'N/A'
+  const bestPracticesScore = report.categories['best-practices']?.score * 100 || 'N/A'
+  const accessibilityScore = report.categories['accessibility']?.score * 100 || 'N/A'
+  const seoScore = report.categories.seo?.score * 100
+  const pwaScore = report.categories.pwa?.score * 100 || 'N/A'
+
   return (
     <div className="section mt-10">
       <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
@@ -9,51 +18,42 @@ const PerformanceSection = () => {
       </h2>
       <div className="matrix bg-white rounded-md px-4 py-8 flex gap-16 justify-centerF items-center">
         <div className="w-96 h-72 flex justify-center border border-gray-100 p-3 rounded-md">
-          <img
-            src="https://foo-software-screenshots.s3.amazonaws.com/final-screenshot-1704112085427.jpg"
-            alt="VI Desktop"
-          />
+          <img src={report.audits['final-screenshot']?.details?.data} alt="VI Desktop" />
+          {/* <img src="https://foo-software-screenshots.s3.amazonaws.com/final-screenshot-1704112085427.jpg" alt="VI Desktop" /> */}
           {/* <img src="https://foo-software-screenshots.s3.amazonaws.com/final-screenshot-1704112114120.jpg" alt="VI Mobile" /> */}
         </div>
-        <div className="overall-matrix">
-          <IndicatorCircle
-            percentage={72}
-            label={'Overall Performance'}
-            size={'lg'}
-            variant={'improvement'}
-          />
-        </div>
+        <div className="overall-matrix">{/* <IndicatorCircle percentage={72} label={'Overall Performance'} size={'lg'} variant={'improvement'} /> */}</div>
         <div className="scores">
           <div className="lighthouse-score flex items-center justify-center gap-6">
             <IndicatorCircle
-              percentage={47}
+              percentage={performanceScore}
               label={'Performance'}
               size={'md'}
-              variant={'poor'}
+              variant={performanceScore <= 49 ? 'poor' : performanceScore <= 89 ? 'improvement' : performanceScore <= 100 ? 'good' : 'nodata'}
             />
             <IndicatorCircle
-              percentage={100}
+              percentage={accessibilityScore}
               label={'Accessibility'}
               size={'md'}
-              variant={'good'}
+              variant={accessibilityScore <= 49 ? 'poor' : accessibilityScore <= 89 ? 'improvement' : accessibilityScore <= 100 ? 'good' : 'nodata'}
             />
             <IndicatorCircle
-              percentage={96}
+              percentage={bestPracticesScore}
               label={'Best Practices'}
               size={'md'}
-              variant={'good'}
+              variant={bestPracticesScore <= 49 ? 'poor' : bestPracticesScore <= 89 ? 'improvement' : bestPracticesScore <= 100 ? 'good' : 'nodata'}
             />
             <IndicatorCircle
-              percentage={87}
+              percentage={seoScore}
               label={'SEO'}
               size={'md'}
-              variant={'improvement'}
+              variant={seoScore <= 49 ? 'poor' : seoScore <= 89 ? 'improvement' : seoScore <= 100 ? 'good' : 'nodata'}
             />
             <IndicatorCircle
-              percentage={'N/A'}
+              percentage={pwaScore}
               label={'PWA'}
               size={'md'}
-              variant={'nodata'}
+              variant={pwaScore <= 49 ? 'poor' : pwaScore <= 89 ? 'improvement' : pwaScore <= 100 ? 'good' : 'nodata'}
             />
           </div>
         </div>

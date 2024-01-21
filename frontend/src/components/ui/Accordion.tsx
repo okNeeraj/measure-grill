@@ -29,10 +29,8 @@ export const Accordion: React.FC<AccordionProps> = ({ open, title, subtitle, imp
             <span className="font-bold">{AUDIT_IMPACT[impact]}</span>
             <span className="material-symbols-outlined font-bold ml-auto text-sm">arrow_upward</span>
           </div>
-          <div className="header-content">
-            <span className="">
-              <Markdown>{title}</Markdown>
-            </span>
+          <div className="header-content flex items-center gap-2">
+            <Markdown>{title}</Markdown>
             <span className={`text-${AUDIT_IMPACT_CLASS[impact]} text-xs`}>{subtitle && ` - ${subtitle}`}</span>
           </div>
           <span className="material-symbols-outlined font-bold ml-auto">{isOpen ? 'expand_less' : 'expand_more'}</span>

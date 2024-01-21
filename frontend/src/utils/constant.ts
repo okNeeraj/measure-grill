@@ -23,7 +23,7 @@ export const INDICATE_SIZES = {
 export const AUDIT_IMPACT = {
 	high: 'High',
 	medium: 'Med',
-	low: 'Low',
+	low: 'Low'
 };
 
 export const AUDIT_IMPACT_CLASS = {
