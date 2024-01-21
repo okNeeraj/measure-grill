@@ -4,11 +4,11 @@ interface Audit {
 	id: string;
 	title: string;
 	score: number;
-	// Other properties...
+	scoreDisplayMode: null | string | boolean
 }
 
 const useAudit = (categories: string[]) => {
-	const report = useSelector((store: unknown) => (store as any).lighthouse.report); // Adjust the type assertion as needed
+	const report = useSelector((store: unknown) => (store as any).lighthouse.report);
 	if (!report) return [];
 
 	const { audits } = report;

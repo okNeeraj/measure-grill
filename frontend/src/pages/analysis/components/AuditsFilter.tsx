@@ -9,7 +9,7 @@ const AuditsFilter = ({ audits }) => {
       <Accordion
         key={audit.id}
         title={audit.title}
-        impact={audit.score <= 0.5 ? 'high' : 'medium'}
+        impact={audit.score <= 0.5 ? 'high' : audit.score <= 0.95 ? 'medium' : 'low'}
         subtitle={audit?.weight}
         open={false}
       >

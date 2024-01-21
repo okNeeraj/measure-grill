@@ -1,12 +1,9 @@
 import { useSelector } from 'react-redux'
-import { Accordion, AccordionContent } from '@components/ui/Accordion'
 import { Tabs, TabMenu, TabContent, TabList } from '@components/ui/Tabs'
 import useAudit from '@hooks/useAudit'
 import AuditsFilter from './AuditsFilter'
-import { useEffect } from 'react'
 
 const AuditSection = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const report = useSelector((store: any) => store.lighthouse.report)
 
   const performanceCategory = report?.categories?.performance?.auditRefs.map((auditRef) => auditRef.id) || []
@@ -24,13 +21,6 @@ const AuditSection = () => {
   const pwaCategory = report?.categories?.pwa?.auditRefs.map((auditRef) => auditRef.id) || []
   const auditsOfPwa = useAudit(pwaCategory)
   if (!report) return
-
-  // console.log('cat===', ref)
-  const audits = report.audits
-
-  // const performance = performanceAudits.map((category) => Object.entries(audits)).filter(Boolean)
-
-  // console.log(typeof audits)
 
   return (
     <div className="section mt-10 rounded-md">

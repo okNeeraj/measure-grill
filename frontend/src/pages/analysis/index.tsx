@@ -25,8 +25,8 @@ const Analysis = () => {
         <div className="audit-url text-gray-500">https://okneeraj.github.io/netflix-gpt/</div>
       </div>
 
-      {/* <CruxSection />
-      <PerformanceSection /> */}
+      <CruxSection />
+      <PerformanceSection />
       <AuditSection />
     </>
   )

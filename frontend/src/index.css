@@ -11,6 +11,11 @@
 
 body {
   @apply bg-[#f3f3f3] text-gray-900;
+  @apply text-[14px]
+}
+
+code {
+  @apply text-pink-700
 }
 
 .progress {
