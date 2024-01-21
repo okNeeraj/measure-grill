@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from 'react-redux';
 
 interface Audit {
@@ -15,7 +16,7 @@ const useAudit = (categories: string[]) => {
 
 	const filteredAudits: Audit[] = categories
 		.map((category: string) => audits[category])
-		.filter((audit: Audit | undefined) => audit)
+		.filter((audit: Audit | undefined) => audit && audit.score !== null && audit.score !== 1)
 		.sort((a, b) => a.score - b.score);
 
 	return filteredAudits;

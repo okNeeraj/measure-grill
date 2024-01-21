@@ -63,10 +63,7 @@ export const report = asyncHandler(async (req, res) => {
 		message: "ok",
 		lighthouseVersion: '11.4.0',
 		// totalAudits: filteredAudit.length,
-		data: {
-			categories: filteredCategory,
-			audits: filteredAudit
-		},
+		data: REPORT_STATIC[1]['lighthouseResult']
 	})
 })
 
