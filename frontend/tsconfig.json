@@ -9,7 +9,9 @@
     "paths": {
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@store/*": ["store/*"],
+      "@hooks/*": ["hooks/*"],
     },
 
     /* Bundler mode */

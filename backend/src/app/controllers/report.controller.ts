@@ -12,23 +12,23 @@ import {
 } from "../helpers/audit.helper";
 
 function filterAudit(lhReport: any) {
-	const auditList = []
+	const auditList = {}
 	Object.values(lhReport.audits).forEach((audit: any) => {
 		const auditType = audit.details?.type;
 		const auditScore = audit.score; // [null, '0 to 1']
 		const auditScoreMode = audit?.scoreDisplayMode; // ['binary', 'numeric', 'notApplicable', 'manual', 'informative']
 		if (
-			// auditScoreMode !== 'informative'
-			// && auditScoreMode !== 'notApplicable'
-			// && auditScoreMode !== 'manual'
-			// && auditScoreMode !== 'error'
+			auditScoreMode !== 'informative'
+			&& auditScoreMode !== 'notApplicable'
+			&& auditScoreMode !== 'manual'
+			&& auditScoreMode !== 'error'
 			// && auditScoreMode === 'binary'
-			// && auditScore !== 1
+			&& auditScore !== 1
 			// auditScoreMode === 'metricSavings'
 			// auditScore === 1
-			true
+			// true
 		) {
-			auditList.push(audit)
+			auditList[audit.id] = audit
 		}
 	});
 

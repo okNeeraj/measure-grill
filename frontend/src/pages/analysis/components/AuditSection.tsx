@@ -1,7 +1,37 @@
+import { useSelector } from 'react-redux'
 import { Accordion, AccordionContent } from '@components/ui/Accordion'
 import { Tabs, TabMenu, TabContent, TabList } from '@components/ui/Tabs'
+import useAudit from '@hooks/useAudit'
+import AuditsFilter from './AuditsFilter'
+import { useEffect } from 'react'
 
 const AuditSection = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const report = useSelector((store: any) => store.lighthouse.report)
+
+  const performanceCategory = report?.categories?.performance?.auditRefs.map((auditRef) => auditRef.id) || []
+  const auditsOfPerformance = useAudit(performanceCategory)
+
+  const accessibilityCategory = report?.categories['accessibility']?.auditRefs.map((auditRef) => auditRef.id) || []
+  const auditsOfAccessibility = useAudit(accessibilityCategory)
+
+  const bestPracticesCategory = report?.categories['best-practices']?.auditRefs.map((auditRef) => auditRef.id) || []
+  const auditsOfBestPractices = useAudit(bestPracticesCategory)
+
+  const seoCategory = report?.categories?.seo?.auditRefs.map((auditRef) => auditRef.id) || []
+  const auditsOfSeo = useAudit(seoCategory)
+
+  const pwaCategory = report?.categories?.pwa?.auditRefs.map((auditRef) => auditRef.id) || []
+  const auditsOfPwa = useAudit(pwaCategory)
+  if (!report) return
+
+  // console.log('cat===', ref)
+  const audits = report.audits
+
+  // const performance = performanceAudits.map((category) => Object.entries(audits)).filter(Boolean)
+
+  // console.log(typeof audits)
+
   return (
     <div className="section mt-10 rounded-md">
       <h2 className="font-bold mb-4 flex items-center gap-2 text-gray-500">
@@ -31,62 +61,23 @@ const AuditSection = () => {
                   <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">CLS</label>
                 </div>
               </div>
-              <Accordion title={'Avoid large layout shifts'} impact={'high'} subtitle={'7 elements found'} open={false}>
-                <AccordionContent>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dolorem dignissimos ex illum,
-                    accusantium minus alias necessitatibus expedita provident perspiciatis pariatur sequi totam eveniet?
-                    Maiores nostrum possimus architecto id atque!
-                  </p>
-                </AccordionContent>
-              </Accordion>
-              <Accordion
-                title={'Largest Contentful Paint element '}
-                impact={'medium'}
-                subtitle={'1,980 ms'}
-                open={false}
-              >
-                <AccordionContent>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dolorem dignissimos ex illum,
-                    accusantium minus alias necessitatibus expedita provident perspiciatis pariatur sequi totam eveniet?
-                    Maiores nostrum possimus architecto id atque!
-                  </p>
-                </AccordionContent>
-              </Accordion>
-              <Accordion
-                title={'Eliminate render-blocking resources'}
-                impact={'low'}
-                subtitle={'Potential savings of 150 ms'}
-              >
-                <AccordionContent>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dolorem dignissimos ex illum,
-                    accusantium minus alias necessitatibus expedita provident perspiciatis pariatur sequi totam eveniet?
-                    Maiores nostrum possimus architecto id atque!
-                  </p>
-                </AccordionContent>
-              </Accordion>
+              <AuditsFilter audits={auditsOfPerformance} />
             </TabContent>
 
             <TabContent value={'accessibility'}>
-              <h1>Accessibility</h1>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <AuditsFilter audits={auditsOfAccessibility} />
             </TabContent>
 
             <TabContent value={'best-practices'}>
-              <h1>Best Practices</h1>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <AuditsFilter audits={auditsOfBestPractices} />
             </TabContent>
 
             <TabContent value={'seo'}>
-              <h1>SEO</h1>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <AuditsFilter audits={auditsOfSeo} />
             </TabContent>
 
             <TabContent value={'pwa'}>
-              <h1>PWA</h1>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <AuditsFilter audits={auditsOfPwa} />
             </TabContent>
           </div>
         </Tabs>
