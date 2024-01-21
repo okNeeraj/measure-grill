@@ -1,9 +1,13 @@
-import AppLayout from './layout/AppLayout';
+import { Provider } from 'react-redux'
+import appStore from '@store/appStore'
+import AppLayout from './layout/AppLayout'
 
 const App = () => {
   return (
-    <AppLayout />
+    <Provider store={appStore}>
+      <AppLayout />
+    </Provider>
   )
 }
 
-export default App;
+export default App
