@@ -32,7 +32,7 @@ const Analysis = () => {
         <div className="audit-url text-gray-500">{report.finalUrl}</div>
       </div>
 
-      {/* <CruxSection /> */}
+      <CruxSection />
       <PerformanceSection />
       <AuditSection />
     </>

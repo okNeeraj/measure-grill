@@ -85,6 +85,18 @@ code {
   background-color: hsl(0, 79%, 50%);
 }
 
+.border-l-indicate-improvement {
+  border-right: 3px solid hsl(40, 79%, 50%);
+}
+
+.border-l-indicate-good {
+  border-right: 3px solid hsl(100, 79%, 40%);
+}
+
+.border-l-indicate-poor {
+  border-right: 3px solid hsl(0, 79%, 50%);
+}
+
 .vital-score {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
