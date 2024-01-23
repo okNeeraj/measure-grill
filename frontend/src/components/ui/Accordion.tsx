@@ -1,12 +1,12 @@
 import { ReactNode, useState } from 'react'
-import { AUDIT_IMPACT, AUDIT_IMPACT_CLASS } from '@utils/constant'
+import { AUDIT_IMPACT, AUDIT_IMPACT_CLASS, AUDIT_IMPACT_ICON } from '@utils/constant'
 import Markdown from 'react-markdown'
 
 interface AccordionProps {
   title: string
   subtitle: string
   open?: boolean
-  impact: 'high' | 'medium' | 'low'
+  impact: 'high' | 'medium' | 'low' | 'passed'
   children: ReactNode
 }
 
@@ -23,17 +23,15 @@ export const Accordion: React.FC<AccordionProps> = ({ open, title, subtitle, imp
           className={`accordion-header flex gap-4 items-center cursor-pointer ${isOpen === true ? 'bg-gray-100 hover:bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
           onClick={toggleAccordion}
         >
-          <div
-            className={`priority p-4 w-16 text-center text-${AUDIT_IMPACT_CLASS[impact]} text-xs gap-2 flex items-center`}
-          >
+          <div className={`priority p-4 w-16 text-center text-${AUDIT_IMPACT_CLASS[impact]} text-xs gap-2 flex items-center`}>
             <span className="font-bold">{AUDIT_IMPACT[impact]}</span>
-            <span className="material-symbols-outlined font-bold ml-auto text-sm">arrow_upward</span>
+            <span className="material-symbols-outlined font-bold ml-auto text-sm">{AUDIT_IMPACT_ICON[impact]}</span>
           </div>
           <div className="header-content flex items-center gap-2">
             <Markdown>{title}</Markdown>
             <span className={`text-${AUDIT_IMPACT_CLASS[impact]} text-xs`}>{subtitle && ` - ${subtitle}`}</span>
           </div>
-          <span className="material-symbols-outlined font-bold ml-auto">{isOpen ? 'expand_less' : 'expand_more'}</span>
+          <span className="material-symbols-outlined font-bold ml-auto p-4">{isOpen ? 'expand_less' : 'expand_more'}</span>
         </div>
         {isOpen && <div className="p-4 bg-white">{children}</div>}
       </div>

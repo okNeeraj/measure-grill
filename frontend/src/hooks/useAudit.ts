@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 interface Audit {
@@ -14,12 +15,16 @@ const useAudit = (categories: string[]) => {
 
 	const { audits } = report;
 
-	const filteredAudits: Audit[] = categories
+	const auditsFailed: Audit[] = categories
 		.map((category: string) => audits[category])
 		.filter((audit: Audit | undefined) => audit && audit.score !== null && audit.score !== 1)
 		.sort((a, b) => a.score - b.score);
 
-	return filteredAudits;
+	const auditsPassed: Audit[] = categories
+		.map((category: string) => audits[category])
+		.filter((audit: Audit | undefined) => audit && audit.score === 1);
+
+	return { failed: auditsFailed, passed: auditsPassed };
 };
 
 export default useAudit;

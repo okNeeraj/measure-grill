@@ -23,11 +23,20 @@ export const INDICATE_SIZES = {
 export const AUDIT_IMPACT = {
 	high: 'High',
 	medium: 'Med',
-	low: 'Low'
+	low: 'Low',
+	passed: ''
 };
 
 export const AUDIT_IMPACT_CLASS = {
 	high: 'indicate-poor',
 	medium: 'indicate-improvement',
 	low: 'indicate-good',
+	passed: 'indicate-passsed',
+};
+
+export const AUDIT_IMPACT_ICON = {
+	high: 'arrow_upward',
+	medium: 'nearby',
+	low: 'arrow_downward',
+	passed: 'task_alt',
 };

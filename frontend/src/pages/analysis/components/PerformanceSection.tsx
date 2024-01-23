@@ -5,11 +5,11 @@ import Matrix from './Matrix'
 const PerformanceSection = () => {
   const report = useSelector((store: any) => store.lighthouse.report)
   if (!report) return
-  const performanceScore = report.categories.performance.score * 100 || 'N/A'
-  const bestPracticesScore = report.categories['best-practices']?.score * 100 || 'N/A'
-  const accessibilityScore = report.categories['accessibility']?.score * 100 || 'N/A'
-  const seoScore = report.categories.seo?.score * 100
-  const pwaScore = report.categories.pwa?.score * 100 || 'N/A'
+  const performanceScore = parseFloat((report.categories.performance.score * 100).toFixed(2)) || 'N/A'
+  const bestPracticesScore = parseFloat((report.categories['best-practices']?.score * 100).toFixed(2)) || 'N/A'
+  const accessibilityScore = parseFloat((report.categories['accessibility']?.score * 100).toFixed(2)) || 'N/A'
+  const seoScore = parseFloat((report.categories.seo?.score * 100).toFixed(2)) || 'N/A'
+  const pwaScore = parseFloat((report.categories.pwa?.score * 100).toFixed(2)) || 'N/A'
 
   const matrixFCP = report.audits['first-contentful-paint']
   const matrixLCP = report.audits['largest-contentful-paint']
@@ -32,7 +32,7 @@ const PerformanceSection = () => {
           <IndicatorCircle percentage={72} label={'Overall Performance'} size={'lg'} variant={'improvement'} />
         </div>
         <div className="scores">
-          <div className="lighthouse-score flex items-center justify-centerh gap-8">
+          <div className="lighthouse-score flex items-center justify-center gap-8">
             <IndicatorCircle
               percentage={performanceScore}
               label={'Performance'}
