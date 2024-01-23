@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { Tabs, TabMenu, TabContent, TabList } from '@components/ui/Tabs'
 import useAudit from '@hooks/useAudit'
 import AuditsFilter from './AuditsFilter'
+import { useState } from 'react'
 
 const AuditSection = () => {
   const report = useSelector((store: any) => store.lighthouse.report)
@@ -42,9 +43,7 @@ const AuditSection = () => {
               <div className="audit-filter flex gap-2 flex-col mb-4">
                 <div className="filter-text text-xs text-gray-500">Show audits relevant to - </div>
                 <div className="filter-list flex gap-2">
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border bg-violet-800 border-violet-800 text-white">
-                    All
-                  </label>
+                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border bg-violet-800 border-violet-800 text-white">All</label>
                   <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">FCP</label>
                   <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">LCP</label>
                   <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">TBT</label>

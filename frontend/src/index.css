@@ -97,6 +97,17 @@ code {
   border-right: 3px solid hsl(0, 79%, 50%);
 }
 
+.text-indicate-passsed .material-symbols-outlined {
+  font-size: 24px;
+  color: hsl(100, 79%, 40%);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+
 .vital-score {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

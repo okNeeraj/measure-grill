@@ -49,7 +49,7 @@ const IndicatorCircle = ({ percentage, variant, size, label }: IndicatorCirclePr
       <div className={`indicator-value absolute ${size === 'md' ? 'text-2xl top-[calc(96px-74px)]' : 'text-4xl font-bold top-[calc(124px-82px)]'}`}>
         {percentage}
       </div>
-      <div className={`indicator-label mt-3 ${size === 'md' ? 'text-xs' : 'font-bold text-sm'} text-[hsl(${indicateColor} 45%)]`}>{label}</div>
+      <div className={`indicator-label mt-3 font-bold ${size === 'md' ? 'text-xs' : 'text-sm'} text-[hsl(${indicateColor} 45%)]`}>{label}</div>
     </div>
   )
 }
