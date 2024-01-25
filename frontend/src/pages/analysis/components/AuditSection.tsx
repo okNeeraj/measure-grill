@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { Tabs, TabMenu, TabContent, TabList } from '@components/ui/Tabs'
 import useAudit from '@hooks/useAudit'
 import AuditsFilter from './AuditsFilter'
+import { useState } from 'react'
 
 const AuditSection = () => {
   const report = useSelector((store: any) => store.lighthouse.report)
