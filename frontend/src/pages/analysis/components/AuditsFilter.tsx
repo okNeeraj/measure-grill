@@ -42,7 +42,7 @@ const AuditsFilter = ({ audits }) => {
               auditToggle && (
                 <Accordion
                   key={audit.id}
-                  title={`${audit.title} - ${audit.score}`}
+                  title={`${audit.title}`}
                   impact={audit.score <= 0.5 ? 'high' : audit.score <= 0.95 ? 'medium' : audit.score < 1 ? 'low' : 'passed'}
                   subtitle={audit?.displayValue}
                   open={false}
