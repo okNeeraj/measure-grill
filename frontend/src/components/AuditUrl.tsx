@@ -8,14 +8,12 @@ const AuditUrl = () => {
   const dispatch = useDispatch()
   const getReport = async () => {
     setLoading(true)
-    const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`
-    const strategy = `strategy=DESKTOP`
-    const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&${strategy}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`
+    const url = `http://localhost:8000/api/v1/analyse?url=${websiteUrl}`
     const response = await fetch(url)
     const result = await response.json()
     if (result) {
       setLoading(false)
-      dispatch(setReport(result.lighthouseResult))
+      dispatch(setReport(result?.data?.lighthouseResult))
     }
   }
   const handleWebsiteUrl = (e: React.ChangeEvent<HTMLInputElement>): void => {

@@ -31,7 +31,7 @@ const AuditsFilter = ({ audits }) => {
       )}
       <div className="other-audits">
         <div className="audit-header cursor-pointer mt-2 flex items-center hover:text-violet-800" onClick={handleAuditToggle}>
-          <div className="text-lg">
+          <div className="text-md">
             Passed Audits <span className="font-bold"> ({passed.length})</span>
           </div>
           <div className="ml-auto p-4 text-gray-400">{auditToggle ? 'Hide' : 'Show'}</div>
@@ -42,7 +42,7 @@ const AuditsFilter = ({ audits }) => {
               auditToggle && (
                 <Accordion
                   key={audit.id}
-                  title={`${audit.title} - ${audit.score}`}
+                  title={`${audit.title}`}
                   impact={audit.score <= 0.5 ? 'high' : audit.score <= 0.95 ? 'medium' : audit.score < 1 ? 'low' : 'passed'}
                   subtitle={audit?.displayValue}
                   open={false}

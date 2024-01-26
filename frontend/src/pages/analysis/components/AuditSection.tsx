@@ -6,8 +6,10 @@ import { useState } from 'react'
 
 const AuditSection = () => {
   const report = useSelector((store: any) => store.lighthouse.report)
+  const [selectedMatrix, setSelectedMatrix] = useState('all')
 
-  const performanceCategory = report?.categories?.performance?.auditRefs.map((auditRef) => auditRef.id) || []
+  const allPerformanceCategory = report?.categories?.performance?.auditRefs.map((auditRef) => auditRef.id) || []
+  const [performanceCategory, setPerformanceCategory] = useState(allPerformanceCategory)
   const auditsOfPerformance = useAudit(performanceCategory)
 
   const accessibilityCategory = report?.categories['accessibility']?.auditRefs.map((auditRef) => auditRef.id) || []
@@ -21,6 +23,19 @@ const AuditSection = () => {
 
   const pwaCategory = report?.categories?.pwa?.auditRefs.map((auditRef) => auditRef.id) || []
   const auditsOfPwa = useAudit(pwaCategory)
+
+  const matrixCategory = report?.categories?.performance?.auditRefs.filter((audit) => audit.group === 'metrics' && audit.relevantAudits).map((audit) => audit)
+
+  const handleMatrixFilter = (matrixType) => {
+    if (matrixType === 'all') {
+      setPerformanceCategory(allPerformanceCategory)
+      setSelectedMatrix('all')
+    } else {
+      setPerformanceCategory(matrixType?.relevantAudits)
+      setSelectedMatrix(matrixType.id)
+    }
+  }
+
   if (!report) return
 
   return (
@@ -43,14 +58,24 @@ const AuditSection = () => {
               <div className="audit-filter flex gap-2 flex-col mb-4">
                 <div className="filter-text text-xs text-gray-500">Show audits relevant to - </div>
                 <div className="filter-list flex gap-2">
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border bg-violet-800 border-violet-800 text-white">All</label>
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">FCP</label>
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">LCP</label>
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">TBT</label>
-                  <label className="rounded-sm py-1 px-4 text-xs cursor-pointer border">CLS</label>
+                  <label
+                    className={`rounded-sm py-1 px-4 text-xs cursor-pointer border ${selectedMatrix === 'all' ? 'bg-violet-800 border-violet-800 text-white' : ''}`}
+                    onClick={() => handleMatrixFilter('all')}
+                  >
+                    All
+                  </label>
+                  {matrixCategory.map((matrix) => (
+                    <label
+                      key={matrix.id}
+                      className={`rounded-sm py-1 px-4 text-xs cursor-pointer border ${selectedMatrix === matrix.id ? 'bg-violet-800 border-violet-800 text-white' : ''}`}
+                      onClick={() => handleMatrixFilter(matrix)}
+                    >
+                      {matrix?.acronym}
+                    </label>
+                  ))}
                 </div>
               </div>
-              <AuditsFilter audits={auditsOfPerformance} />
+              {auditsOfPerformance && <AuditsFilter audits={auditsOfPerformance} />}
             </TabContent>
 
             <TabContent value={'accessibility'}>

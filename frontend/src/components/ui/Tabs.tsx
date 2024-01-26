@@ -64,7 +64,7 @@ type TabContentProps = {
 export const TabContent: React.FC<TabContentProps> = ({ value, children }) => {
   const { currentTab } = useContext(ActiveTabContext)
   return currentTab === value ? (
-    <div data-tab={value} className="">
+    <div data-tab={value} className="min-h-[400px]">
       {children}
     </div>
   ) : null
