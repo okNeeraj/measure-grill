@@ -1,8 +1,10 @@
+import { WebsiteList } from './components/WebsiteList'
 const Websites = () => {
-	return (
-	  <div>Websites</div>
-	)
-  }
-  
-  export default Websites
-  
+  return (
+    <div>
+      <WebsiteList />
+    </div>
+  )
+}
+
+export default Websites
