@@ -18,7 +18,7 @@ const AppLayout = () => {
           </div>
           <main className="page-container mt-6 px-4">
             {/* <Dashboard /> */}
-            {/* <Analysis /> */}
+            <Analysis />
             <Websites />
           </main>
         </div>
