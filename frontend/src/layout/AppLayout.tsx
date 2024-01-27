@@ -1,8 +1,9 @@
 // import Dashboard from "@pages/dashboard";
-import Analysis from "../pages/analysis";
+import Websites from '@pages/websites'
+import Analysis from '../pages/analysis'
 
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 
 const AppLayout = () => {
   return (
@@ -17,7 +18,8 @@ const AppLayout = () => {
           </div>
           <main className="page-container mt-6 px-4">
             {/* <Dashboard /> */}
-            <Analysis />
+            {/* <Analysis /> */}
+            <Websites />
           </main>
         </div>
       </div>
@@ -25,4 +27,4 @@ const AppLayout = () => {
   )
 }
 
-export default AppLayout;
+export default AppLayout
