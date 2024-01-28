@@ -18,8 +18,8 @@ const AppLayout = () => {
           </div>
           <main className="page-container mt-6 px-4">
             {/* <Dashboard /> */}
-            <Analysis />
             <Websites />
+            {/* <Analysis /> */}
           </main>
         </div>
       </div>

@@ -73,6 +73,10 @@ code {
   color: hsl(0, 79%, 50%);
 }
 
+.text-indicate-na {
+  color: hsl(0, 0%, 80%);
+}
+
 .bg-indicate-improvement {
   background-color: hsl(40, 79%, 50%);
 }
@@ -85,6 +89,10 @@ code {
   background-color: hsl(0, 79%, 50%);
 }
 
+.bg-indicate-na {
+  background-color: hsl(0, 0%, 80%);
+}
+
 .border-l-indicate-improvement {
   border-right: 3px solid hsl(40, 79%, 50%);
 }
@@ -93,8 +101,28 @@ code {
   border-right: 3px solid hsl(100, 79%, 40%);
 }
 
-.border-l-indicate-poor {
-  border-right: 3px solid hsl(0, 79%, 50%);
+.border-l-indicate-na {
+  border-right: 3px solid hsl(0, 0%, 80%);
+}
+
+.border-indicate-poor {
+  border: 1px solid hsl(0, 79%, 50%);
+}
+
+.border-indicate-improvement {
+  border: 1px solid hsl(40, 79%, 50%);
+}
+
+.border-indicate-good {
+  border: 1px solid hsl(100, 79%, 40%);
+}
+
+.border-indicate-poor {
+  border: 1px solid hsl(0, 79%, 50%);
+}
+
+.border-indicate-na {
+  border: 1px solid hsl(0, 0%, 80%);
 }
 
 .text-indicate-passsed .material-symbols-outlined {
