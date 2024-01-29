@@ -1,3 +1,5 @@
+import Pagination from '@components/ui/Pagination'
+
 export const WebsiteList = () => {
   return (
     <div className="section mt-4">
@@ -18,15 +20,15 @@ export const WebsiteList = () => {
         <table className="min-w-full bg-white">
           <thead className="border-b">
             <tr>
-              <th className="text-left py-3 px-4 uppercase font-semibold text-sm w-20">Website</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">Performance</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">Accessibility</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">Best Practices</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">SEO</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">PWA</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">W3C</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm text-center">Last Report</th>
-              <th className="text-left py-3 px-4 uppercase font-semibold text-sm"></th>
+              <th className="text-left py-3 px-4 uppercase font-bol text-xs w-20">Website</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Performance</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Accessibility</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Best Practices</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">SEO</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">PWA</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">W3C</th>
+              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Last Report</th>
+              <th className="text-left py-3 px-4 uppercase font-bol text-xs"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -287,6 +289,7 @@ export const WebsiteList = () => {
             </tr>
           </tbody>
         </table>
+        <Pagination />
       </div>
     </div>
   )
