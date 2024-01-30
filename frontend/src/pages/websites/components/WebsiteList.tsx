@@ -1,6 +1,74 @@
 import Pagination from '@components/ui/Pagination'
+import WebsiteTable from './WebsiteTable'
 
 export const WebsiteList = () => {
+  const data = [
+    {
+      id: 'dsyhnf43jlj4oij3l5',
+      name: 'zustQ',
+      url: 'https://www.zustq.com',
+      w3cStatus: 'Passed',
+      lastReportAt: '25 Jan 2024, 11:22 PM',
+      score: { performance: 99, accessibility: 93, bestPractices: 90, seo: 100, pwa: 99 },
+    },
+    {
+      id: 'g56df43jlj4oij3l5',
+      name: 'Google',
+      url: 'https://google.com',
+      w3cStatus: 'Failed',
+      lastReportAt: '26 Jan 2024, 10:35 AM',
+      score: { performance: 98, accessibility: 89, bestPractices: 79, seo: 100, pwa: 'n/a' },
+    },
+    {
+      id: 'qwerty12345',
+      name: 'Example',
+      url: 'https://example.com',
+      w3cStatus: 'Passed',
+      lastReportAt: '27 Jan 2024, 03:45 PM',
+      score: { performance: 75, accessibility: 82, bestPractices: 90, seo: 95, pwa: 'n/a' },
+    },
+    {
+      id: 'h87sd56d4j3i7g9h2',
+      name: 'GitHub',
+      url: 'https://github.com',
+      w3cStatus: 'Passed',
+      lastReportAt: '28 Jan 2024, 09:10 AM',
+      score: { performance: 100, accessibility: 85, bestPractices: 82, seo: 80, pwa: 'n/a' },
+    },
+    {
+      id: 'i82ns75k4d8h3f6p',
+      name: 'Amazon',
+      url: 'https://amazon.com',
+      w3cStatus: 'Failed',
+      lastReportAt: '29 Jan 2024, 01:55 PM',
+      score: { performance: 95, accessibility: 100, bestPractices: 85, seo: 95, pwa: 87 },
+    },
+    {
+      id: 'p93f8s4d5h2j7k8l',
+      name: 'Netflix',
+      url: 'https://netflix.com',
+      w3cStatus: 'Passed',
+      lastReportAt: '30 Jan 2024, 05:20 PM',
+      score: { performance: 82, accessibility: 92, bestPractices: 95, seo: 90, pwa: 'n/a' },
+    },
+    {
+      id: 'u29c8f5s4d3h6j8l',
+      name: 'Facebook',
+      url: 'https://facebook.com',
+      w3cStatus: 'Failed',
+      lastReportAt: '31 Jan 2024, 08:45 AM',
+      score: { performance: 65, accessibility: 100, bestPractices: 79, seo: 80, pwa: 'n/a' },
+    },
+    {
+      id: 's29d8h5j7k3l4f6g',
+      name: 'Twitter',
+      url: 'https://twitter.com',
+      w3cStatus: 'Passed',
+      lastReportAt: '01 Feb 2024, 07:30 PM',
+      score: { performance: 78, accessibility: 82, bestPractices: 85, seo: 88, pwa: 'n/a' },
+    },
+  ]
+
   return (
     <div className="section mt-4">
       <div className="matrix bg-white rounded-md px-4 pt-5 pb-8 justify-centerF items-center">
@@ -17,278 +85,7 @@ export const WebsiteList = () => {
             </div>
           </div>
         </div>
-        <table className="min-w-full bg-white">
-          <thead className="border-b">
-            <tr>
-              <th className="text-left py-3 px-4 uppercase font-bol text-xs w-20">Website</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Performance</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Accessibility</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Best Practices</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">SEO</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">PWA</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">W3C</th>
-              <th className="py-3 px-4 uppercase font-bol text-xs text-center">Last Report</th>
-              <th className="text-left py-3 px-4 uppercase font-bol text-xs"></th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            <tr className="hover:bg-gray-50">
-              <td className="py-3 px-4">
-                <div className="font-bold">ZustQ</div>
-                <div className="text-xs truncate w-52">
-                  https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">89</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">96</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">95</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">100</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-na border-indicate-na border">N/A</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <a href="#">
-                  <span className="p-2 text-xs font-bold rounded-md text-indicate-poor border-indicate-poor border">Failed</span>
-                </a>
-              </td>
-              <td className="py-3 px-4 text-center">28 Jan 2024, 02:14 PM</td>
-              <td className="py-3 px-4">
-                <div className="flex gap-2">
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Analysis"
-                  >
-                    monitoring
-                  </button>
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Timeline"
-                  >
-                    timeline
-                  </button>
-                  <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                  </button>
-                  <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                    more_vert
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-50">
-              <td className="py-3 px-4">
-                <div className="font-bold">ZustQ</div>
-                <div className="text-xs truncate w-52">
-                  https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">89</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">96</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">95</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">100</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-na border-indicate-na border">N/A</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <a href="#">
-                  <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">Passed</span>
-                </a>
-              </td>
-              <td className="py-3 px-4 text-center">28 Jan 2024, 02:14 PM</td>
-              <td className="py-3 px-4">
-                <div className="flex gap-2">
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Analysis"
-                  >
-                    monitoring
-                  </button>
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Timeline"
-                  >
-                    timeline
-                  </button>
-                  <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                  </button>
-                  <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                    more_vert
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-50">
-              <td className="py-3 px-4">
-                <div className="font-bold">ZustQ</div>
-                <div className="text-xs truncate w-52">
-                  https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">89</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">96</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">95</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">100</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-na border-indicate-na border">N/A</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <a href="#">
-                  <span className="p-2 text-xs font-bold rounded-md text-indicate-poor border-indicate-poor border">Failed</span>
-                </a>
-              </td>
-              <td className="py-3 px-4 text-center">28 Jan 2024, 02:14 PM</td>
-              <td className="py-3 px-4">
-                <div className="flex gap-2">
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Analysis"
-                  >
-                    monitoring
-                  </button>
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Timeline"
-                  >
-                    timeline
-                  </button>
-                  <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                  </button>
-                  <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                    more_vert
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-50">
-              <td className="py-3 px-4">
-                <div className="font-bold">ZustQ</div>
-                <div className="text-xs truncate w-52">
-                  https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">89</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">96</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">95</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">100</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-na border-indicate-na border">N/A</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <a href="#">
-                  <span className="p-2 text-xs font-bold rounded-md text-indicate-poor border-indicate-poor border">Failed</span>
-                </a>
-              </td>
-              <td className="py-3 px-4 text-center">28 Jan 2024, 02:14 PM</td>
-              <td className="py-3 px-4">
-                <div className="flex gap-2">
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Analysis"
-                  >
-                    monitoring
-                  </button>
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Timeline"
-                  >
-                    timeline
-                  </button>
-                  <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                  </button>
-                  <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                    more_vert
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-50">
-              <td className="py-3 px-4">
-                <div className="font-bold">ZustQ</div>
-                <div className="text-xs truncate w-52">
-                  https://stores.myvi.in/vi-vodafone-idea-store-vi-store-vfstore-cp-telecommunications-service-provider-connaught-place-new-delhi-128884/Home
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">89</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">96</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-good border-indicate-good border">95</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-improvement border-indicate-improvement border">100</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <span className="p-2 text-xs font-bold rounded-md text-indicate-na border-indicate-na border">N/A</span>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <a href="#">
-                  <span className="p-2 text-xs font-bold rounded-md text-indicate-poor border-indicate-poor border">Failed</span>
-                </a>
-              </td>
-              <td className="py-3 px-4 text-center">28 Jan 2024, 02:14 PM</td>
-              <td className="py-3 px-4">
-                <div className="flex gap-2">
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Analysis"
-                  >
-                    monitoring
-                  </button>
-                  <button
-                    className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
-                    title="Performance Timeline"
-                  >
-                    timeline
-                  </button>
-                  <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                  </button>
-                  <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                    more_vert
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <WebsiteTable data={data} />
         <Pagination />
       </div>
     </div>
