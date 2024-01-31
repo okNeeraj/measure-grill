@@ -5,6 +5,7 @@ import AppLayout from './layout/AppLayout'
 import Dashboard from '@pages/dashboard'
 import Websites from '@pages/websites'
 import Analysis from '@pages/analysis'
+import W3c from '@pages/w3c'
 
 const App = () => {
   return (
@@ -15,6 +16,9 @@ const App = () => {
           <Route path="websites" element={<Websites />} />
           <Route path="analysis" element={<Analysis />}>
             <Route path=":id" element={<Analysis />} />
+          </Route>
+          <Route path="w3c" element={<W3c />}>
+            <Route path=":id" element={<W3c />} />
           </Route>
         </Route>
         <Route path="/*">
