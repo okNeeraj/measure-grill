@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { PAGE } from '@routes/index'
 import { performanceImpact } from '@utils/performanceImpact'
 
 interface WebsiteTableProps {
@@ -86,21 +88,27 @@ const WebsiteTable: React.FC<WebsiteTableProps> = ({ data }) => {
             <td className="py-3 px-4 text-center">{website.lastReportAt}</td>
             <td className="py-3 px-4">
               <div className="flex gap-2">
-                <button
-                  className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
+                <Link
+                  to={`${PAGE['analysis']}/${website.id}`}
+                  className="flex items-center justify-center border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
                   title="Performance Analysis"
                 >
-                  monitoring
-                </button>
-                <button
-                  className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
+                  <span className="material-symbols-outlined">monitoring</span>
+                </Link>
+                <Link
+                  to={`${PAGE['analysis']}/${website.id}`}
+                  className="flex items-center justify-center border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
                   title="Performance Timeline"
                 >
-                  timeline
-                </button>
-                <button className="border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="W3c Validator">
+                  <span className="material-symbols-outlined">timeline</span>
+                </Link>
+                <Link
+                  to={`${PAGE['analysis']}/${website.id}`}
+                  className="flex items-center justify-center border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
+                  title="W3c Validator"
+                >
                   <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
-                </button>
+                </Link>
                 <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
                   more_vert
                 </button>

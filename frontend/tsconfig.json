@@ -12,6 +12,7 @@
       "@utils/*": ["utils/*"],
       "@store/*": ["store/*"],
       "@hooks/*": ["hooks/*"],
+      "@routes/*": ["routes/*"],
     },
 
     /* Bundler mode */
