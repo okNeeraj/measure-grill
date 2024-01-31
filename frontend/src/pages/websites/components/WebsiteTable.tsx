@@ -1,3 +1,4 @@
+import { W3CICON } from '@utils/constant'
 import { Link } from 'react-router-dom'
 import { PAGE } from '@routes/index'
 import { performanceImpact } from '@utils/performanceImpact'
@@ -103,11 +104,11 @@ const WebsiteTable: React.FC<WebsiteTableProps> = ({ data }) => {
                   <span className="material-symbols-outlined">timeline</span>
                 </Link>
                 <Link
-                  to={`${PAGE['analysis']}/${website.id}`}
+                  to={`${PAGE['w3c']}/${website.id}`}
                   className="flex items-center justify-center border p-1 w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
                   title="W3c Validator"
                 >
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/W3C%C2%AE_Icon.svg" alt="w3c" />
+                  <img src={W3CICON} alt="w3c" />
                 </Link>
                 <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
                   more_vert

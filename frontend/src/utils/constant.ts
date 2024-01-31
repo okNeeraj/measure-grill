@@ -1,4 +1,5 @@
 export const LOGO = `http://localhost:5173/mgrill.png`;
+export const W3CICON = `http://localhost:5173/w3cIcon.svg`;
 
 export const INDICATE_COLOR = {
 	good: '100deg 80%',

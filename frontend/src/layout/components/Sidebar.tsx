@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { PAGE } from '@routes/index'
-import { LOGO } from '@utils/constant'
+import { LOGO, W3CICON } from '@utils/constant'
 
 const Sidebar = () => {
   const location = useLocation()
@@ -30,6 +30,13 @@ const Sidebar = () => {
         >
           <Link to={PAGE['analysis']} className="flex items-center justify-center w-12 h-12">
             <span className="material-symbols-outlined">monitoring</span>
+          </Link>
+        </div>
+        <div
+          className={`app-item bg-white shadow-lg hover:text-violet-800 rounded-lg border ${location.pathname === PAGE['w3c'] ? 'text-violet-800 border-violet-800' : 'text-black border-transparent'}`}
+        >
+          <Link to={PAGE['w3c']} className="flex items-center justify-center w-12 h-12">
+            <img src={W3CICON} alt="w3c" width={30} />
           </Link>
         </div>
         <div

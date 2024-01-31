@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { WebsiteList } from './components/WebsiteList'
 import Dialog from '@components/ui/Dialog'
 const Websites = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const openDialog = () => {
     setIsOpen(true)
@@ -49,7 +49,7 @@ const Websites = () => {
             />
           </div>
           <div className="">
-            <button className="flex w-full justify-center items-center gap-3 bg-violet-800 text-white px-8 py-3 rounded-md uppercase">Save</button>
+            <button className="flex w-full justify-center items-center gap-3 bg-violet-800 text-white px-8 py-3 rounded-md uppercase">Save & Run Audit</button>
           </div>
         </div>
       </Dialog>
