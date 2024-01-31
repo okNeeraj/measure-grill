@@ -10,6 +10,7 @@ export default defineConfig({
       '@utils': '/src/utils',
       '@store': '/src/store',
       '@hooks': '/src/hooks',
+      '@routes': '/src/routes',
     }
   },
   plugins: [react()],

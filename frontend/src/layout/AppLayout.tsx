@@ -1,7 +1,4 @@
-// import Dashboard from "@pages/dashboard";
-import Websites from '@pages/websites'
-import Analysis from '../pages/analysis'
-
+import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 
@@ -17,9 +14,7 @@ const AppLayout = () => {
             <Navbar />
           </div>
           <main className="page-container mt-6 px-4">
-            {/* <Dashboard /> */}
-            <Websites />
-            {/* <Analysis /> */}
+            <Outlet />
           </main>
         </div>
       </div>

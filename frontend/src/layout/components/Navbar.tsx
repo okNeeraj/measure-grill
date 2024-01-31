@@ -1,13 +1,15 @@
-import AuditUrl from "@components/AuditUrl";
+import { Link } from 'react-router-dom'
+import { PAGE } from '@routes/index'
+import AuditUrl from '@components/AuditUrl'
 
 const Navbar = () => {
   return (
     <nav className="bg-white p-4 mt-2 rounded-md flex items-center justify-between">
       <div className="logo text-lg font-bold">
-        <a href="/" className="flex gap-2 items-center">
+        <Link to={PAGE['websites']} className="flex gap-2 items-center">
           <span className="material-symbols-outlined">west</span>
-          <span>Analysis</span>
-        </a>
+          <span>Websites</span>
+        </Link>
       </div>
       <div>
         <AuditUrl />
@@ -26,4 +28,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default Navbar
