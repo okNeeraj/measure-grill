@@ -4,7 +4,6 @@ import { LOGO, W3CICON } from '@utils/constant'
 
 const Sidebar = () => {
   const location = useLocation()
-  console.log(location)
   return (
     <aside className="h-full flex items-center flex-col gap-3">
       <div className="w-14 h-14 mt-5">
