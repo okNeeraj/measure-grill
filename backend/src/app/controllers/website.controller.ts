@@ -11,3 +11,12 @@ export const website = asyncHandler(async (req, res) => {
 		data: WEBSITE_MOCK
 	})
 })
+
+
+export const create = asyncHandler(async (req, res) => {
+	console.log(req.body)
+	res.status(200).json({
+		message: "ok",
+		data: req.body
+	})
+})

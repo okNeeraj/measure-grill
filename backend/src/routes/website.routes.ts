@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { website } from "../app/controllers/website.controller";
+import { create, website } from "../app/controllers/website.controller";
 
 const router = Router();
 
 router.route("/").get(website)
+router.route("/add").post(create)
 
 export default router;
