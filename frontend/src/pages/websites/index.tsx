@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { WebsiteList } from './components/WebsiteList'
 import Dialog from '@components/ui/Dialog'
+import { postData } from '@utils/postData'
+import { BACKEND_API_ENDPOINT } from '@utils/constant'
+
 const Websites = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [websiteName, setWebsiteName] = useState('')
+  const [websiteUrl, setWebsiteUrl] = useState('')
 
   const openDialog = () => {
     setIsOpen(true)
@@ -10,6 +15,25 @@ const Websites = () => {
 
   const closeDialog = () => {
     setIsOpen(false)
+  }
+
+  const handleName = (e) => {
+    setWebsiteName(e.target.value)
+  }
+  const handleUrl = (e) => {
+    setWebsiteUrl(e.target.value)
+  }
+
+  const saveWebsiteDetails = () => {
+    if (websiteName === '') return
+    if (websiteUrl === '') return
+    const websiteData = {
+      name: websiteName,
+      url: websiteUrl,
+    }
+    postData(`${BACKEND_API_ENDPOINT}/website/add`, websiteData).then((data) => {
+      console.log('sr-data ', data)
+    })
   }
 
   return (
@@ -34,22 +58,29 @@ const Websites = () => {
             <label className="text-xs text-slate-600 mb-2 block">Website Name</label>
             <input
               type="text"
+              onChange={handleName}
               placeholder="Enter Website Name"
               className="px-4 py-3 text-xs bg-gray-100 rounded-sm w-full focus-within:outline-none focus-within:bg-gray-200"
-              value=""
+              value={websiteName}
             />
           </div>
           <div className="input mb-6">
             <label className="text-xs text-slate-600 mb-2 block">Website URL</label>
             <input
               type="text"
+              onChange={handleUrl}
               placeholder="Enter Website URL"
               className="px-4 py-3 text-xs bg-gray-100 rounded-sm w-full focus-within:outline-none focus-within:bg-gray-200"
-              value=""
+              value={websiteUrl}
             />
           </div>
           <div className="">
-            <button className="flex w-full justify-center items-center gap-3 bg-violet-800 text-white px-8 py-3 rounded-md uppercase">Save & Run Audit</button>
+            <button
+              onClick={saveWebsiteDetails}
+              className="flex w-full justify-center items-center gap-3 bg-violet-800 text-white px-8 py-3 rounded-md uppercase"
+            >
+              Save & Run Audit
+            </button>
           </div>
         </div>
       </Dialog>
