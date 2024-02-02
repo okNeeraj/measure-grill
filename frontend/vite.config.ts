@@ -11,6 +11,7 @@ export default defineConfig({
       '@store': '/src/store',
       '@hooks': '/src/hooks',
       '@routes': '/src/routes',
+      '@validations': '/src/validations',
     }
   },
   plugins: [react()],

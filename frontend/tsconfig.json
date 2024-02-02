@@ -13,6 +13,8 @@
       "@store/*": ["store/*"],
       "@hooks/*": ["hooks/*"],
       "@routes/*": ["routes/*"],
+      "@validations/*": ["validations/*"],
+      
     },
 
     /* Bundler mode */
