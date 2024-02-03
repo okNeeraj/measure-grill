@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { WebsiteList } from './components/WebsiteList'
 import Dialog from '@components/ui/Dialog'
 import { postData } from '@utils/postData'
 import { BACKEND_API_ENDPOINT } from '@utils/constant'
-import { ValidationItem, validate } from '@validations/validate'
+import { validate } from '@validations/validate'
 
 type WebsiteValidationType = string | boolean
 
@@ -53,6 +55,9 @@ const Websites = () => {
       }
       postData(`${BACKEND_API_ENDPOINT}/website/add`, websiteData).then((data) => {
         console.log('sr-data ', data)
+        toast.success('New website add successfully')
+        setWebsiteName('')
+        setWebsiteUrl('')
         setIsOpen(false)
       })
     }
@@ -73,6 +78,18 @@ const Websites = () => {
             <span>Add New Website</span>
           </button>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       </div>
       <Dialog isOpen={isOpen} onClose={closeDialog} title={'Add New Website'}>
         <div className="py-3">
