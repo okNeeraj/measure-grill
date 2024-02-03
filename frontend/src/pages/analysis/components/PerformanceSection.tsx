@@ -28,9 +28,9 @@ const PerformanceSection = () => {
         <div className="w-96 h-72 flex justify-center border border-gray-100 p-3 rounded-md">
           <img src={report.audits['final-screenshot']?.details?.data} alt="VI Desktop" />
         </div>
-        <div className="overall-matrix">
-          <IndicatorCircle percentage={72} label={'Overall Performance'} size={'lg'} variant={'improvement'} />
-        </div>
+        {/* <div className="overall-matrix">
+          <IndicatorCircle percentage={'B'} label={'MGrill Grade'} size={'lg'} variant={'improvement'} />
+        </div> */}
         <div className="scores">
           <div className="lighthouse-score flex items-center justify-center gap-8">
             <IndicatorCircle

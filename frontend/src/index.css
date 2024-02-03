@@ -10,8 +10,22 @@
 
 
 body {
-  @apply bg-[#f3f3f3] text-gray-900;
+  @apply bg-[#f5f1fc] text-gray-900;
   @apply text-[14px]
+}
+
+.inner-layout {
+  display: flex;
+  gap: 16px;
+}
+
+.inner-page {
+  flex: 0 0 calc(100% - 200px);
+}
+
+.right-sidebar {
+  flex: 0 0 200px;
+  padding: 16px;
 }
 
 code {
