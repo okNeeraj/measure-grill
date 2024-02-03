@@ -1,5 +1,4 @@
 import asyncHandler from "../../utils/asyncHandler";
-import { isValidURL } from "../../utils/isValidUrl";
 
 const getReport = async (websiteUrl: string) => {
 	const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`
@@ -12,7 +11,6 @@ const getReport = async (websiteUrl: string) => {
 
 export const analyse = asyncHandler(async (req, res) => {
 	const { url } = req.query;
-	if (!isValidURL(url)) return
 	const report = await getReport(url)
 	if (!report) return
 
