@@ -10,8 +10,20 @@
 
 
 body {
-  @apply bg-[#f5f1fc] text-gray-900;
+  @apply bg-[#f6f8fc] text-gray-900;
   @apply text-[14px]
+}
+
+.sidebar-aside {
+  height: calc(100vh - 107px);
+}
+
+.main-nav {
+  box-shadow: 0 14px 12px -17px rgb(143 143 144 / 15%);
+}
+
+.sub-nav {
+  box-shadow: 0 14px 12px -17px rgb(143 143 144 / 30%);
 }
 
 .inner-layout {

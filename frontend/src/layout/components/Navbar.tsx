@@ -1,29 +1,52 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { PAGE } from '@routes/index'
 import AuditUrl from '@components/AuditUrl'
+import { LOGO } from '@utils/constant'
 
 const Navbar = () => {
+  const location = useLocation()
+
   return (
-    <nav className="bg-white p-4 mt-2 rounded-md flex items-center justify-between">
-      <div className="logo text-lg font-bold">
-        <Link to={PAGE['websites']} className="flex gap-2 items-center">
-          <span className="material-symbols-outlined">west</span>
-          <span>Websites</span>
-        </Link>
-      </div>
-      <div>
-        <AuditUrl />
-      </div>
-      <div className="right-pannel flex gap-8">
-        <button className="flex items-center px-7 py-1 bg-gray-50 text-sm text-violet-800 border border-violet-800 rounded-full">
-          <span className="material-symbols-outlined">bolt</span>
-          <span className="uppercase text-xs font-bold">Upgrade</span>
-        </button>
-        <div className="profile flex gap-2 items-center">
-          <div className="profile-name">Neeraj</div>
-          <div className="w-10 h-10 bg-slate-400 rounded-full"></div>
+    <nav className="bg-white main-nav">
+      <div className="flex items-center px-4 py-2">
+        <div className="w-12 h-12">
+          <img src={LOGO} alt="Measure Grill" />
+        </div>
+        <div className="logo text-lg font-bold ml-[28px]">
+          <Link to={PAGE['websites']} className="flex gap-2 items-center">
+            <span className="material-symbols-outlined">west</span>
+            <span>Anaylsis</span>
+          </Link>
+        </div>
+        <div className="right-pannel flex gap-4 ml-auto">
+          <button className="flex items-center px-7 py-1 bg-gray-50 text-sm text-violet-800 border border-violet-800 rounded-full">
+            <span className="material-symbols-outlined">bolt</span>
+            <span className="uppercase text-xs font-bold">Upgrade</span>
+          </button>
+          <div className="relative w-10 h-10 flex border border-gray-100 items-center justify-center rounded-full hover:bg-gray-50 cursor-pointer">
+            <span className="material-symbols-outlined font-bold">notifications</span>
+            <span className="bg-red-700 border border-red-50 text-white w-5 h-5 flex justify-center items-center rounded-full text-xs absolute top-[-5px] right-[-5px]">
+              3
+            </span>
+          </div>
+          <div className="flex items-center justify-center cursor-pointer hover:bg-gray-50 w-10 h-10 rounded-full">
+            <span className="material-symbols-outlined font-bold">apps</span>
+          </div>
         </div>
       </div>
+      {location.pathname.split('/').includes('analysis') && (
+        <div className="sub-nav flex gap-8 pl-[96px] bg-violet-50 pt-1">
+          <a href="#!" className="py-2 flex border-b-2 border-b-violet-800 text-violet-800 font-medium hover:text-violet-800">
+            Report
+          </a>
+          <a href="#!" className="py-2 flex border-b-2 border-b-transparent text-slate-400 font-medium hover:text-slate-600">
+            Timeline
+          </a>
+          <a href="#!" className="py-2 flex border-b-2 border-b-transparent text-slate-400 font-medium hover:text-slate-600">
+            Compititor Analysis
+          </a>
+        </div>
+      )}
     </nav>
   )
 }
