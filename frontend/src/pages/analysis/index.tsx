@@ -4,7 +4,6 @@ import AuditSection from './components/AuditSection'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setReport } from '@store/reportSlice'
-import SubMenu from './components/SubMenu'
 
 const Analysis = () => {
   const dispatch = useDispatch()
@@ -28,9 +27,8 @@ const Analysis = () => {
 
   return (
     <>
-      {/* <SubMenu /> */}
       <div className="border-l-4 border-gray-300 pl-4">
-        <h1 className="text-2xl">Report Generated At {readableDate}</h1>
+        <h1 className="text-xl font-bold">Report Generated At {readableDate}</h1>
         <div className="audit-url text-gray-500">{report.finalUrl}</div>
       </div>
       <CruxSection />
