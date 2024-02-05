@@ -14,6 +14,25 @@ body {
   @apply text-[14px]
 }
 
+.string-seprator span::before,
+.string-seprator span::after {
+  content: "";
+  height: 1px;
+  width: 36%;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  background: #dde3e6;
+}
+
+.string-seprator span::before {
+  left: 0;
+}
+
+.string-seprator span::after {
+  right: 0;
+}
+
 .sidebar-aside {
   height: calc(100vh - 107px);
 }
