@@ -1,4 +1,8 @@
 export const PAGE = {
+  home: '/',
+  login: '/login',
+  signup: '/signup',
+  report: '/report',
   dashboard: '/dashboard',
   websites: '/dashboard/websites',
   analysis: '/dashboard/analysis',
