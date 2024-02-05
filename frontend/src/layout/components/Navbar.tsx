@@ -7,8 +7,8 @@ const Navbar = () => {
   const location = useLocation()
 
   return (
-    <nav className="bg-white main-nav">
-      <div className="flex items-center px-4 py-2">
+    <nav className="main-nav">
+      <div className="bg-white bg-opacity-55 backdrop-blur-lg flex items-center px-4 py-2">
         <div className="w-12 h-12">
           <img src={LOGO} alt="Measure Grill" />
         </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </div>
       </div>
       {location.pathname.split('/').includes('analysis') && (
-        <div className="sub-nav flex gap-8 pl-[96px] bg-violet-50 pt-1">
+        <div className="sub-nav flex gap-8 pl-[96px] bg-violet-100 bg-opacity-65 backdrop-blur-lg pt-1">
           <a href="#!" className="py-2 flex border-b-2 border-b-violet-800 text-violet-800 font-medium hover:text-violet-800">
             Report
           </a>
