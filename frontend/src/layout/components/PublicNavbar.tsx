@@ -30,14 +30,14 @@ const PublicNavbar = () => {
           </Link>
         </div>
         <div className="right-pannel flex gap-4 ml-auto">
-          <button className="flex items-center px-7 py-2 bg-gray-50 text-sm text-violet-800 border border-violet-800 rounded-full">
+          <Link to={PAGE['signup']} className="flex items-center px-7 py-2 bg-gray-50 text-sm text-violet-800 border border-violet-800 rounded-full">
             <span className="material-symbols-outlined">bolt</span>
             <span className="uppercase text-xs font-bold">Try for Free</span>
-          </button>
-          <button className="flex items-center gap-4 px-7 py-2 bg-violet-800 text-sm text-white border border-violet-800 rounded-md">
+          </Link>
+          <Link to={PAGE['login']} className="flex items-center gap-4 px-7 py-2 bg-violet-800 text-sm text-white border border-violet-800 rounded-md">
             <span className="material-symbols-outlined">login</span>
             <span className="uppercase text-xs font-bold">Login</span>
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
