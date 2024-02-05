@@ -1,6 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import appStore from '@store/appStore'
+import PublicLayout from './layout/PublicLayout'
+import Home from '@pages/public/home'
+import Report from '@pages/public/report'
+
 import AppLayout from './layout/AppLayout'
 import Dashboard from '@pages/dashboard'
 import Websites from '@pages/websites'
@@ -21,8 +25,9 @@ const App = () => {
             <Route path=":id" element={<W3c />} />
           </Route>
         </Route>
-        <Route path="/*">
-          <Route index element={<h1>Publically Accessible</h1>} />
+        <Route path="/*" element={<PublicLayout />}>
+          <Route index element={<Home />} />
+          <Route path="report" element={<Report />} />
         </Route>
       </Routes>
     </Provider>
