@@ -18,6 +18,11 @@ const Navbar = () => {
             <span>Anaylsis</span>
           </Link>
         </div>
+        {location.pathname.split('/').includes('analysis') && (
+          <div className="m-auto">
+            <AuditUrl />
+          </div>
+        )}
         <div className="right-pannel flex gap-4 ml-auto">
           <button className="flex items-center px-7 py-1 bg-gray-50 text-sm text-violet-800 border border-violet-800 rounded-full">
             <span className="material-symbols-outlined">bolt</span>
