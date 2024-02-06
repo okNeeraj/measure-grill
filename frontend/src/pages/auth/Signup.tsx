@@ -1,28 +1,28 @@
 import { PAGE } from '@routes/index'
 import { Link } from 'react-router-dom'
+import AuthScreen from './components/AuthScreen'
 
 const Signup = () => {
   return (
     <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4"></div>
+      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4">
+        <AuthScreen />
+      </div>
       <div className="bg-white h-full md:col-span-3 lg:col-span-1 p-4">
         <div className="h-full auth-wraper flex items-center">
           <div className="w-full p-4">
             <div className="heading mb-8">
-              <h1 className="text-4xl mb-2">
-                Welcome to <span className="text-violet-800 font-bold">ZustQ</span>
-              </h1>
-              <p className="text-sm text-slate-500">Create an account to automate your website's auditing.</p>
+              <h1 className="text-4xl mb-2 font-bold text-slate-700">Registration</h1>
+              <p className="text-sm text-slate-500">A six digit OTP will be sent to your email address</p>
             </div>
             <div>
               <div className="mb-4">
-                <label className="mb-1 block">
-                  Email <sup className="text-red-600">*</sup>
-                </label>
                 <input type="text" className="py-4 px-6 w-full border border-violet-100 rounded-md" placeholder="Email ID" />
               </div>
               <div className="action">
-                <button className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">Next</button>
+                <Link to={PAGE['verify']} className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">
+                  Request OTP
+                </Link>
                 <span className="string-seprator text-center block relative my-5">
                   <span className="text-gray-400">Or, Signup with</span>
                 </span>

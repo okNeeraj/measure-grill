@@ -1,18 +1,21 @@
 import { PAGE } from '@routes/index'
 import { Link } from 'react-router-dom'
+import AuthScreen from './components/AuthScreen'
 
 const Login = () => {
   return (
     <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4"></div>
+      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4">
+        <AuthScreen />
+      </div>
       <div className="bg-white h-full md:col-span-3 lg:col-span-1 p-4">
         <div className="h-full auth-wraper flex items-center">
           <div className="w-full p-4">
             <div className="heading mb-8">
-              <h1 className="text-4xl mb-2">
+              <h1 className="text-4xl mb-2 text-slate-700">
                 Welcome to <span className="text-violet-800 font-bold">ZustQ</span>
               </h1>
-              <p className="text-sm text-slate-500">Login to automate your website's auditing.</p>
+              <p className="text-sm text-slate-400">Login to automate your website's auditing.</p>
             </div>
             <div>
               <div className="mb-3">

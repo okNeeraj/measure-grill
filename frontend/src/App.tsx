@@ -15,6 +15,7 @@ import Dashboard from '@pages/dashboard'
 import Websites from '@pages/websites'
 import Analysis from '@pages/analysis'
 import W3c from '@pages/w3c'
+import Verify from '@pages/auth/Verify'
 
 const App = () => {
   return (
@@ -23,10 +24,10 @@ const App = () => {
         <Route path="/*" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="verify" element={<Verify />} />
         </Route>
         <Route path="/*" element={<PublicLayout />}>
           <Route index element={<Home />} />
-          <Route path="login" element={<Report />} />
           <Route path="report" element={<Report />} />
         </Route>
         <Route path="/dashboard/*" element={<AppLayout />}>
