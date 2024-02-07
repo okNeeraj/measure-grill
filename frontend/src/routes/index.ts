@@ -2,6 +2,7 @@ export const PAGE = {
   home: '/',
   login: '/login',
   signup: '/signup',
+  verify: '/verify',
   report: '/report',
   dashboard: '/dashboard',
   websites: '/dashboard/websites',
