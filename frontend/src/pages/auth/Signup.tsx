@@ -5,7 +5,7 @@ import AuthScreen from './components/AuthScreen'
 const Signup = () => {
   return (
     <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4">
+      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 relative">
         <AuthScreen />
       </div>
       <div className="bg-white h-full md:col-span-3 lg:col-span-1 p-4">

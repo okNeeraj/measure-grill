@@ -1,5 +1,5 @@
 export const LOGO = `http://localhost:5173/mgrill.png`;
-export const SCREEN_PERFORMANCE = `http://localhost:5173/screen_performance.svg`;
+export const SCREEN_PERFORMANCE = `http://localhost:5173/screen_performance_3.svg`;
 export const W3CICON = `http://localhost:5173/w3cIcon.svg`;
 
 export const BACKEND_API_ENDPOINT = 'http://localhost:8000/api/v1';

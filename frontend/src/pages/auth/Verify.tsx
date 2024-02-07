@@ -7,7 +7,7 @@ const Verify = () => {
   const [resendTime, setResendTime] = useState(0)
   return (
     <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4">
+      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 relative">
         <AuthScreen />
       </div>
       <div className="bg-white h-full md:col-span-3 lg:col-span-1 p-4">
@@ -31,7 +31,9 @@ const Verify = () => {
                 <div className="flex gap-2 items-center"></div>
               </div>
               <div className="action">
-                <button className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">Submit</button>
+                <Link to={PAGE['dashboard']} className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">
+                  Submit
+                </Link>
                 <div className="help flex gap-1 items-center justify-center mt-4">
                   Didn't receive the OTP ?
                   <button

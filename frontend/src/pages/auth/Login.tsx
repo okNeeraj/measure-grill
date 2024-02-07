@@ -5,7 +5,7 @@ import AuthScreen from './components/AuthScreen'
 const Login = () => {
   return (
     <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 p-4">
+      <div className="bg-violet-200 md:col-span-3 lg:col-span-2 relative">
         <AuthScreen />
       </div>
       <div className="bg-white h-full md:col-span-3 lg:col-span-1 p-4">
@@ -42,7 +42,9 @@ const Login = () => {
                     </a>
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">Login</button>
+                <Link to={PAGE['dashboard']} className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">
+                  Login
+                </Link>
                 <span className="string-seprator text-center block relative my-5">
                   <span className="text-gray-400">Or, Login with</span>
                 </span>
