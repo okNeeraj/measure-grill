@@ -26,7 +26,7 @@ const Report = () => {
   const readableDate = date.toLocaleString('en-US', options)
 
   return (
-    <>
+    <div className="p-4">
       <div className="border-l-4 border-gray-300 pl-4">
         <h1 className="text-xl font-bold">Report Generated At {readableDate}</h1>
         <div className="audit-url text-gray-500">{report.finalUrl}</div>
@@ -34,7 +34,7 @@ const Report = () => {
       <CruxSection />
       <PerformanceSection />
       <AuditSection />
-    </>
+    </div>
   )
 }
 

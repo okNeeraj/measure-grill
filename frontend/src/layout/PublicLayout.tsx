@@ -9,7 +9,7 @@ const AppLayout = () => {
       </div>
       <div className="app-layoutf">
         <div className="app-container">
-          <main className="page-container mt-6 px-4">
+          <main className="page-container">
             <Outlet />
           </main>
         </div>
