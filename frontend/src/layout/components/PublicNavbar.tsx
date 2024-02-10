@@ -6,7 +6,7 @@ import { LOGO } from '@utils/constant'
 const PublicNavbar = () => {
   return (
     <nav className="main-nav">
-      <div className="bg-white bg-opacity-55 backdrop-blur-lg flex items-center px-4 py-2">
+      <div className="bg-white bg-opacity-90 backdrop-blur-lg flex items-center px-4 py-2">
         <div className="logo-container">
           <Link to={'/'} className="flex gap-2 items-center">
             <div className="w-12 h-12">
