@@ -4,11 +4,6 @@
   "description": "Node express mongoose typescript boilerplate",
   "main": "dist/index.js",
   "bin": "bin/createNodetsApp.cjs",
-  "repository": "https://github.com/saisilinus/node-express-mongoose-typescript-boilerplate.git",
-  "bugs": {
-    "url": "https://github.com/saisilinus/node-express-mongoose-typescript-boilerplate/issues"
-  },
-  "author": "linus wafula saisi <saisilinus.work@gmail.com>",
   "license": "MIT",
   "type": "module",
   "engines": {
