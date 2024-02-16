@@ -14,6 +14,23 @@ body {
   @apply text-[14px]
 }
 
+.feature-thumbnails {
+  @apply mb-6
+}
+
+.feature-thumbnails .slick-slide {
+  @apply border-b-4 border-gray-50 pb-4 cursor-pointer hover:text-violet-800
+}
+
+.feature-thumbnails .slick-slide.slick-current {
+  @apply border-violet-800 text-violet-800
+}
+
+.feature-thumbnails .slick-slide:not(.slick-current) .thumb-icon {
+  @apply text-gray-400
+}
+
+
 .string-seprator span::before,
 .string-seprator span::after {
   content: "";
