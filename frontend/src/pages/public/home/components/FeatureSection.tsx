@@ -74,8 +74,9 @@ const FeatureSection = () => {
   }, [])
 
   return (
-    <div className="py-8 m-auto bg-white container rounded-md shadow-lg shadow-gray-100 mb-12 mt-[-60px]">
-      <>
+    <div className="py-12 mb-12">
+      <h1 className="text-5xl font-bold text-slate-800 text-center mb-8">See what's inside</h1>
+      <div className="pt-6 m-auto bg-white container rounded-md shadow-lg shadow-gray-100 ">
         <div className="slider-container feature-slider">
           <Slider
             className="feature-thumbnails"
@@ -123,7 +124,7 @@ const FeatureSection = () => {
             ))}
           </Slider>
         </div>
-      </>
+      </div>
     </div>
   )
 }
