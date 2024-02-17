@@ -6,26 +6,6 @@ import { PAGE } from '@routes/index'
 import { Link } from 'react-router-dom'
 
 const FeatureSection = () => {
-  const settingsMain = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.slider-nav', // Ensure this matches the class name of your thumbnail slider
-  }
-
-  const settingsThumbnails = {
-    dots: false,
-    infinite: false,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    focusOnSelect: true,
-    asNavFor: '.slider-main', // Ensure this matches the class name of your main slider
-  }
-
   const features = {
     thumbnails: [
       {
@@ -41,7 +21,7 @@ const FeatureSection = () => {
         icon: 'auto_transmission',
       },
       {
-        title: 'Custom Alert',
+        title: 'Get Notified',
         icon: 'add_alert',
       },
       {
@@ -57,7 +37,7 @@ const FeatureSection = () => {
       'Streamline your agency processes for growth',
       'Grow organic traﬃc with our complete and easy SEO tools & workﬂow',
       'Unveil your competitors’ marketing strategy and tactics',
-      'Discover how to reach more prospects while spending less',
+      'Get notified on Slack, Whatsapp and Email',
       'Build your most effective performant website strategy',
       'See the trend shift in web vital performance',
     ],
