@@ -80,6 +80,26 @@ code {
   @apply text-pink-700
 }
 
+.drop-shadow {}
+
+.dropdownMenuContent {
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0.9;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
 .progress {
   transform: rotate(-90deg);
   transform-origin: center;
