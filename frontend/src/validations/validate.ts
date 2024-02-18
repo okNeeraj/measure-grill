@@ -7,9 +7,10 @@ export interface ValidationItem {
 }
 
 const isValidURL = (url: string): boolean => {
-	const urlPattern = new RegExp('^(https?|ftp)://[^\s/$.?#].[^\s]*$');
+	const urlPattern = new RegExp('^(https?://|http://)[^\\s/$.?#].[^\\s]*$');
 	return urlPattern.test(url);
-}
+};
+
 
 export const validate = (items: ValidationItem[]): Record<string, ValidationItem> => {
 	const validationResults: Record<string, ValidationItem> = {};
