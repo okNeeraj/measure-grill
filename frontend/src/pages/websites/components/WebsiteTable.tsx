@@ -1,5 +1,6 @@
 import { W3CICON } from '@utils/constant'
 import { Link } from 'react-router-dom'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { PAGE } from '@routes/index'
 import { performanceImpact } from '@utils/performanceImpact'
 
@@ -110,9 +111,54 @@ const WebsiteTable: React.FC<WebsiteTableProps> = ({ data }) => {
                 >
                   <img src={W3CICON} alt="w3c" />
                 </Link>
-                <button className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800" title="Setting">
-                  more_vert
-                </button>
+                <DropdownMenu.Root modal={false}>
+                  <DropdownMenu.Trigger asChild>
+                    <button
+                      className="material-symbols-outlined border w-9 h-9 rounded-md bg-white hover:bg-violet-100 hover:text-violet-800"
+                      title="Setting"
+                      aria-label="Page Options"
+                    >
+                      more_vert
+                    </button>
+                  </DropdownMenu.Trigger>
+
+                  <DropdownMenu.Portal>
+                    <DropdownMenu.Content
+                      className="bg-white shadow-lg pb-2 min-w-40 rounded-md dropdownMenuContent"
+                      sideOffset={5}
+                      collisionPadding={20}
+                      side="left"
+                    >
+                      <DropdownMenu.Separator className="border-t border-gray-100 mb-2" />
+                      <DropdownMenu.Item className="focus-visible:outline-none group">
+                        <Link to={PAGE['dashboard']} className="py-2 px-3 hover:text-violet-800 flex items-center gap-3">
+                          <span className="material-symbols-outlined text-gray-400 group-hover:text-violet-800">visibility</span>
+                          <span>View Page</span>
+                        </Link>
+                      </DropdownMenu.Item>
+                      <DropdownMenu.Item className="focus-visible:outline-none group">
+                        <Link to={PAGE['dashboard']} className="py-2 px-3 hover:text-violet-800 flex items-center gap-3">
+                          <span className="material-symbols-outlined text-gray-400 group-hover:text-violet-800">settings</span>
+                          <span>Settings</span>
+                        </Link>
+                      </DropdownMenu.Item>
+                      <DropdownMenu.Item className="focus-visible:outline-none group">
+                        <Link to={PAGE['dashboard']} className="py-2 px-3 hover:text-violet-800 flex items-center gap-3">
+                          <span className="material-symbols-outlined text-gray-400 group-hover:text-violet-800">edit_square</span>
+                          <span>Edit</span>
+                        </Link>
+                      </DropdownMenu.Item>
+                      <DropdownMenu.Separator className="border-t border-gray-100 my-2" />
+                      <DropdownMenu.Item className="focus-visible:outline-none group">
+                        <Link to={'#'} className="py-2 px-3 hover:text-red-600 flex items-center gap-3">
+                          <span className="material-symbols-outlined text-gray-400 group-hover:text-red-600">delete</span>
+                          <span>Delete</span>
+                        </Link>
+                      </DropdownMenu.Item>
+                      <DropdownMenu.Arrow className="fill-white" width={20} height={10} />
+                    </DropdownMenu.Content>
+                  </DropdownMenu.Portal>
+                </DropdownMenu.Root>
               </div>
             </td>
           </tr>
