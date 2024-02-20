@@ -5,7 +5,7 @@ export const PAGE = {
   verify: '/verify',
   report: '/report',
   dashboard: '/dashboard',
-  websites: '/dashboard/websites',
+  websites: '/dashboard/pages',
   analysis: '/dashboard/analysis',
   performance: '/dashboard/performance',
   w3c: '/dashboard/w3c',

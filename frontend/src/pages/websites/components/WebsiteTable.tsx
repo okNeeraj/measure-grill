@@ -25,7 +25,7 @@ const WebsiteTable: React.FC<WebsiteTableProps> = ({ data }) => {
     <table className="min-w-full bg-white">
       <thead className="border-b">
         <tr>
-          <th className="text-left py-3 px-4 uppercase font-bol text-xs w-20">Website</th>
+          <th className="text-left py-3 px-4 uppercase font-bol text-xs w-20">Page</th>
           <th className="py-3 px-4 uppercase font-bol text-xs text-center">Performance</th>
           <th className="py-3 px-4 uppercase font-bol text-xs text-center">Accessibility</th>
           <th className="py-3 px-4 uppercase font-bol text-xs text-center">Best Practices</th>
