@@ -81,6 +81,10 @@ export const login = asyncHandler(async (req, res) => {
 				token: userToken,
 				user
 			})
+		} else {
+			res.status(400).json({
+				message: `Invalid email or password!`
+			})
 		}
 	} catch (error) {
 		console.log(error)
