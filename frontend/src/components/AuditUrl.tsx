@@ -20,7 +20,7 @@ const AuditUrl: React.FC<AuditUrlProps> = ({ variant }) => {
     if (result) {
       setLoading(false)
       dispatch(setReport(result?.data?.lighthouseResult))
-      navigate(PAGE['report'])
+      // navigate(PAGE['report'])
     }
   }
   const handleWebsiteUrl = (e: React.ChangeEvent<HTMLInputElement>): void => {
