@@ -17,7 +17,10 @@ const Signup = () => {
             </div>
             <div>
               <div className="mb-4">
-                <input type="text" className="py-4 px-6 w-full border border-violet-100 rounded-md" placeholder="Email ID" />
+                <input type="text" required className="py-4 px-6 w-full border border-violet-100 rounded-md" placeholder="Your Name" />
+              </div>
+              <div className="mb-4">
+                <input type="text" required className="py-4 px-6 w-full border border-violet-100 rounded-md" placeholder="Email ID" />
               </div>
               <div className="action">
                 <Link to={PAGE['verify']} className="flex items-center justify-center gap-3 bg-violet-800 text-white px-4 py-4 rounded-md w-full uppercase">
