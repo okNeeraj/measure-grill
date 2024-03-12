@@ -2,7 +2,7 @@ import asyncHandler from "../../utils/asyncHandler";
 
 const getReport = async (websiteUrl: string) => {
 	const categories = `category=ACCESSIBILITY&category=BEST_PRACTICES&category=PERFORMANCE&category=SEO`
-	const strategy = `strategy=DESKTOP`
+	const strategy = `strategy=MOBILE`
 	const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${websiteUrl}&${categories}&${strategy}&key=AIzaSyAgzcH7flPzUEssmUV73i_Y2wFpWJOWBCs`
 	const response = await fetch(url)
 	const result = await response.json()
