@@ -33,6 +33,7 @@ const AuditUrl: React.FC<AuditUrlProps> = ({ variant }) => {
         <div className={`flex justify-center ${variant === 'lg' ? 'w-[768px]' : ''}`}>
           <input
             type="text"
+            data-test="audit input"
             value={websiteUrl}
             onChange={handleWebsiteUrl}
             className={`border rounded-sm focus-within:outline-none ${variant === 'lg' ? 'w-full px-4 py-4 text-lg' : 'px-4 py-2 w-96'}`}
@@ -40,6 +41,7 @@ const AuditUrl: React.FC<AuditUrlProps> = ({ variant }) => {
           />
           <button
             onClick={getReport}
+            data-test="audit submit"
             disabled={websiteUrl === '' ? true : false}
             className={`bg-violet-800 disabled:bg-violet-500 disabled:cursor-not-allowed px-4 mx-1 rounded-sm border-none text-white ${variant === 'lg' ? 'text-lg min-w-40' : 'text-md'} `}
           >
